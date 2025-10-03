@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     public GameObject MenuPausa;
-    public static bool enpausa;
+    public bool enpausa;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -3,7 +3,12 @@ using UnityEngine.SceneManagement;
 public class GameManagerBotones : MonoBehaviour
 {
     [SerializeField] GameObject menuPausa;
+    [SerializeField] PlayerInteraction player;
     //public int scene;
+    private void Start()
+    {
+        player = FindAnyObjectByType<PlayerInteraction>();
+    }
     public void SceneName(int scene)
     {
         Time.timeScale = 1f;
@@ -20,6 +25,7 @@ public class GameManagerBotones : MonoBehaviour
     public void Resumir()
     {
         menuPausa.SetActive(false);
+        player.enpausa = false;
         Time.timeScale = 1f;
     }
 
