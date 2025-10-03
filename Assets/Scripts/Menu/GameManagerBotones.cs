@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 public class GameManagerBotones : MonoBehaviour
 {
     [SerializeField] GameObject menuPausa;
-    [SerializeField] PlayerInteraction player;
+    [HideInInspector] public PlayerInteraction player;
     //public int scene;
     private void Start()
     {
