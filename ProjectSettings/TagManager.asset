@@ -7,6 +7,9 @@ TagManager:
   - Points
   - Hazard
   - Palanca
+  - Pink
+  - Green
+  - Puzzle 2
   layers:
   - Default
   - TransparentFX
