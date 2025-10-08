@@ -944,6 +944,10 @@ PrefabInstance:
       propertyPath: camara
       value: 
       objectReference: {fileID: 3372831456067994263}
+    - target: {fileID: 8287459976213385787, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_Color.a
+      value: 0.16470589
+      objectReference: {fileID: 0}
     - target: {fileID: 9199593475271181134, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
       propertyPath: m_Name
       value: Pantalla_Scroll (1)

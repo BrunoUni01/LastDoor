@@ -6,7 +6,7 @@ using UnityEngine;
 public class Scroll : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] float hSize;
+    //[SerializeField] float hSize;
     BoxCollider2D a;
     Vector3 b;
     private ScrollManager manager;
@@ -16,10 +16,13 @@ public class Scroll : MonoBehaviour
     [SerializeField] bool playerIn;
     [SerializeField] float mult;
     [SerializeField] float cooldown;
+    private GameManagerBotones gameOver;
+    //[SerializeField] private AnimationCurve curveSpeed;
 
 
     void Start()
     {
+        gameOver = FindFirstObjectByType<GameManagerBotones>();
         manager = FindFirstObjectByType<ScrollManager>();
         a = GetComponent<BoxCollider2D>();
        // camara = FindFirstObjectByType<Camera>().GetComponent<Transform>();
@@ -62,7 +65,7 @@ public class Scroll : MonoBehaviour
     {
         if (t / tiempo >= 1) 
         {
-            Time.timeScale = 0f;
+            gameOver.SceneName(3);
         }
     }
 

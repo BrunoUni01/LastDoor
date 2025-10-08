@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dash")]
     [SerializeField] private float dashForce;
     [SerializeField] private bool inDash;
+    [HideInInspector] public bool inTouchable;
     [SerializeField] private float dashDistance;
     [SerializeField] private float normalSpeed;
     [SerializeField] private float cooldown;
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     void Dash()
     {
         inDash = true;
+        inTouchable = true;
         currentSpeed *= dashForce;
         Invoke("AfterDash", dashDistance / 10);
         Invoke("ResetDash", cooldown);
@@ -52,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     void AfterDash()
     {
         currentSpeed = normalSpeed;
+        inTouchable = false;
     }
     void ResetDash() 
     {

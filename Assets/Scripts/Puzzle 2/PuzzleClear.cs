@@ -6,12 +6,14 @@ public class PuzzleClear : MonoBehaviour
     private MirrorMove pink;
     private bool puzzleclear;
     public GameObject puzzle2;
+    [SerializeField] private PlayerHealth player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         green = FindFirstObjectByType<Move>();
         pink = FindFirstObjectByType<MirrorMove>();
         puzzleclear = false;
+
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class PuzzleClear : MonoBehaviour
         {
             puzzleclear = true;
             puzzle2.SetActive(false);
+            player.gameObject.SetActive(true);
         }
     }
 }

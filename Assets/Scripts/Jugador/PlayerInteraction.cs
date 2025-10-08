@@ -6,11 +6,13 @@ public class PlayerInteraction : MonoBehaviour
     public bool enpausa;
     public GameObject puzzle2;
     private bool puzzleInteract;
+    private PlayerHealth jugador;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         MenuPausa.SetActive(false);
         puzzleInteract = false;
+        jugador = FindFirstObjectByType<PlayerHealth>();    
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class PlayerInteraction : MonoBehaviour
         if (puzzleInteract)
         {
             puzzle2.SetActive(true);
+            jugador.gameObject.SetActive(false);
         }
     }
 
