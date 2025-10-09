@@ -5,14 +5,16 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject MenuPausa;
     public bool enpausa;
     public GameObject puzzle2;
-    private bool puzzleInteract;
+    //[HideInInspector] public bool puzzleFinish;
+    [SerializeField] private bool puzzleInteract;
     private PlayerHealth jugador;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         MenuPausa.SetActive(false);
         puzzleInteract = false;
-        jugador = FindFirstObjectByType<PlayerHealth>();    
+        jugador = FindFirstObjectByType<PlayerHealth>();
+        //puzzleFinish = false;
     }
 
     // Update is called once per frame
@@ -63,6 +65,17 @@ public class PlayerInteraction : MonoBehaviour
         if(collision.CompareTag("Puzzle 2"))
         {
             puzzleInteract = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Finish")) 
+        {
+            puzzleInteract = false;
+        }
+        if (collision.CompareTag("Puzzle 2"))
+        {
+            puzzleInteract = false;
         }
     }
 }

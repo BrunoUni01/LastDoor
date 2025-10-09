@@ -641,7 +641,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -8711723680165213332, guid: 14442e6168bdb7b449b59fa87ee6aaca, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5372549}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3024,6 +3024,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4477985177758a499d97ad44c7bfba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzle2: {fileID: 0}
+  player: {fileID: 0}
+  interactor: {fileID: 0}
 --- !u!1 &1508329820
 GameObject:
   m_ObjectHideFlags: 0

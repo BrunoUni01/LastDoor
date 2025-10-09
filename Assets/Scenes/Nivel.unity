@@ -1973,19 +1973,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 453d82891c5444342a54ee7d84acb7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hSize: 0
   camara: {fileID: 0}
   t: 0
   tiempo: 15
   playerIn: 1
   mult: 0
   cooldown: 0
-  curveSpeed:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!61 &1751117226
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3230,6 +3223,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 841957554}
+    - target: {fileID: 796515965665063805, guid: bc330a301b102cc4d9d6fd79b032d4be, type: 3}
+      propertyPath: interactor
+      value: 
+      objectReference: {fileID: 533817771}
     - target: {fileID: 4391597694720150778, guid: bc330a301b102cc4d9d6fd79b032d4be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.17295837
