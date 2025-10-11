@@ -3,8 +3,10 @@ using UnityEngine;
 public class PushableObject : MonoBehaviour
 {
     [SerializeField] private float speedMultiply = 1;
+    private Validador valida;
     private Transform target;
     private Rigidbody2D rb;
+    [SerializeField] bool isPuzzleTres;
     private void Awake() => rb = GetComponent<Rigidbody2D>();
     void Update()
     {
@@ -19,8 +21,14 @@ public class PushableObject : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isPuzzleTres) return;
         if (!collision.CompareTag("Finish")) return;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         target = collision.transform;
+    }
+    public void Validador(Transform pos) 
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        target = pos.transform;
     }
 }
