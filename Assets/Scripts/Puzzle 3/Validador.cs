@@ -21,7 +21,7 @@ public class Validador : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("CajaPuzTres")) return;
+        if (!collision.CompareTag("CajaPuzTres")) { return; }
         var caja = collision.gameObject.GetComponent<Box_Number>().numero;
         validacion = placa.Validacion(caja);
         if (validacion) collision.gameObject.GetComponent<PushableObject>().Validador(transform);
