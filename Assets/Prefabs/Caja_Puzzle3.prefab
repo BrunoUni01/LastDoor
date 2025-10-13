@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 3815977714871215606}
   - component: {fileID: 7108330699681127727}
   - component: {fileID: 38909691970036442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Caja_Puzzle3
   m_TagString: CajaPuzTres
   m_Icon: {fileID: 0}
@@ -206,8 +206,8 @@ Transform:
   m_GameObject: {fileID: 8940674976814151553}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78.71536, y: 24.21958, z: 0}
-  m_LocalScale: {x: 1.6070163, y: 1.6763415, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3832271937330549003}
@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiply: 1
+  amplitud: 0.01
   isPuzzleTres: 1
 --- !u!114 &7108330699681127727
 MonoBehaviour:

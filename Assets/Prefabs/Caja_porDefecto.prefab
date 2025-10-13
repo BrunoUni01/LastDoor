@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiply: 1
-  amplitud: 0
+  amplitud: 0.01
   isPuzzleTres: 0
 --- !u!61 &1323912586206982940
 BoxCollider2D:
