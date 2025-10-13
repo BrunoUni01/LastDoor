@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 6625100467227307323}
   - component: {fileID: 5641079579506035592}
   - component: {fileID: 1304944304870662926}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Paredes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 266390427149087684}
   - component: {fileID: 8120611735044290821}
   - component: {fileID: 9166233449106078488}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Paredes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 554973088131882551}
   - component: {fileID: 2892551362834937039}
   - component: {fileID: 1698136957260412040}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Paredes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 7031946040803630235}
   - component: {fileID: 5844265774807999481}
   - component: {fileID: 9189652282895008514}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Paredes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

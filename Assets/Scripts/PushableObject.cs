@@ -7,8 +7,10 @@ public class PushableObject : MonoBehaviour
     private Transform target;
     private Rigidbody2D rb;
     private bool onCollision;
+    private float distance;
+    private Vector2 direction;
     [SerializeField] bool isPuzzleTres;
-    private void Awake() { rb = GetComponent<Rigidbody2D>(); onCollision = false; }
+    private void Awake() { rb = GetComponent<Rigidbody2D>(); onCollision = false; distance = (GetComponent<BoxCollider2D>().size.x) - 0.19f; }
     void Update()
     {
         if (onCollision) return;
@@ -19,7 +21,9 @@ public class PushableObject : MonoBehaviour
     {
         if (!collision.collider.CompareTag("Player")) return;
         onCollision = true;
-        Vector2 direction = collision.contacts[0].normal;
+        direction = collision.contacts[0].normal;
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, direction, distance, LayerMask.GetMask("Wall"));
+        if(!hit)
         rb.MovePosition(rb.position + direction * speedMultiply * Time.fixedDeltaTime);
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -40,6 +44,10 @@ public class PushableObject : MonoBehaviour
         if (!isPuzzleTres) return;
         if (!collision.CompareTag("Finish")) return;
         target = null;
+    }
+    private void OnDrawGizmos()
+    {
+        Debug.DrawRay(transform.position, direction * distance, Color.red);
     }
     //private void OnTriggerStay2D(Collider2D collision)
     //{
