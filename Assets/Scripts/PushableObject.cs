@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -5,9 +6,9 @@ public class PushableObject : MonoBehaviour
 {
     [SerializeField] private float speedMultiply = 1;
     private Validador valida;
-    private Transform target;
+    public Transform target;
     private Rigidbody2D rb;
-    private bool onCollision;
+    [SerializeField] private bool onCollision;
     private float distance;
     public RaycastHit2D hit;
     [SerializeField] float amplitud;
@@ -18,12 +19,15 @@ public class PushableObject : MonoBehaviour
     {
         if (onCollision) return;
         if (target == null) return;
-        transform.position = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime);
+        Vector2 start = (Vector2)transform.position + distance * direction;
+        RaycastHit2D hitBox = Physics2D.Raycast(start, direction, amplitud, LayerMask.GetMask("Caja"));
+        if(!hitBox.collider)
+        transform.position = Vector2.MoveTowards(rb.position, target.position, Time.deltaTime * speedMultiply);
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
 
-        if (!collision.collider.CompareTag("Player")) { direction = new Vector2(0,0); return; }
+        if (!collision.collider.CompareTag("Player") && collision.gameObject.layer != 8) {  return; }
         
         onCollision = true;
         direction = collision.contacts[0].normal;
@@ -48,6 +52,7 @@ public class PushableObject : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.gameObject.layer != 8) return;
         if (!collision.collider.CompareTag("Player")) return;
         onCollision = false;
         rb.constraints = RigidbodyConstraints2D.None;
