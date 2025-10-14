@@ -87,14 +87,14 @@ public class PushableObject : MonoBehaviour
         BoxCollider2D box = GetComponent<BoxCollider2D>();
         Vector2 scaledSize = Vector2.Scale(box.size, transform.lossyScale);
 
-        float distanceX = (scaledSize.x / 2f) + 0.01f;
+        float distance = (Mathf.Abs(dir.x) > Mathf.Abs(dir.y) ? scaledSize.x : scaledSize.y) / 2f + 0.01f;
         float distanceY = (scaledSize.y / 2f) * 0.9f; // un poco menos para no chocar esquinas
         Vector2 perp = new Vector2(-dir.y, dir.x);
 
         // Puntos de inicio del raycast (centro, arriba, abajo)
-        Vector2 startCenter = (Vector2)transform.position + dir * distanceX;
-        Vector2 startTop = (Vector2)transform.position + dir * distanceX + perp * distanceY;
-        Vector2 startBottom = (Vector2)transform.position + dir * distanceX - perp * distanceY;
+        Vector2 startCenter = (Vector2)transform.position + dir * distance;
+        Vector2 startTop = (Vector2)transform.position + dir * distance + perp * distanceY;
+        Vector2 startBottom = (Vector2)transform.position + dir * distance - perp * distanceY;
 
 
         RaycastHit2D center = Physics2D.Raycast(startCenter, dir, amplitud, LayerMask.GetMask("Wall", "Caja"));

@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float cooldown;
 
     [Header("Movimiento Lineal")]
-    [SerializeField] private float currentSpeed;
+    [SerializeField] public float currentSpeed;
     [SerializeField] private Palanca palancaActual;
     private bool puedeActivar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
