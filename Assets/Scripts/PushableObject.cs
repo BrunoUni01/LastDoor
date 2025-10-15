@@ -6,7 +6,7 @@ public class PushableObject : MonoBehaviour
 {
     [SerializeField] private float speedMultiply = 1;
     private Validador valida;
-    public Transform target;
+    //public Transform target;
     private Rigidbody2D rb;
     [SerializeField] private bool onCollision;
     private float distance;
@@ -18,14 +18,14 @@ public class PushableObject : MonoBehaviour
     private void Awake() { rb = GetComponent<Rigidbody2D>(); onCollision = false; distance = (GetComponent<BoxCollider2D>().size.x / 2f) + 0.01f; }
     private void Update()
     {
-        if (onCollision || target == null)
+        if (onCollision)
             return;
 
         // Si no hay nada al frente, moverse hacia el target
-        if (!DetectarFrente(direction, out RaycastHit2D hit))
-        {
-            //rb.MovePosition(Vector2.MoveTowards(rb.position, target.position, Time.deltaTime * speedMultiply));
-        }
+        //if (!DetectarFrente(direction, out RaycastHit2D hit))
+        //{
+        //    //rb.MovePosition(Vector2.MoveTowards(rb.position, target.position, Time.deltaTime * speedMultiply));
+        //}
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -69,8 +69,8 @@ public class PushableObject : MonoBehaviour
         if (isPuzzleTres || onCollision) return;
         if (!collision.CompareTag("Finish")) return;
 
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        target = collision.transform;
+        //rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        //target = collision.transform;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -78,7 +78,7 @@ public class PushableObject : MonoBehaviour
         if (!isPuzzleTres) return;
         if (!collision.CompareTag("Finish")) return;
 
-        target = null;
+        //target = null;
     }
 
     //  Método que hace un triple raycast dinámico al frente de la caja
@@ -87,7 +87,7 @@ public class PushableObject : MonoBehaviour
         BoxCollider2D box = GetComponent<BoxCollider2D>();
         Vector2 scaledSize = Vector2.Scale(box.size, transform.lossyScale);
 
-        float distance = (Mathf.Abs(dir.x) > Mathf.Abs(dir.y) ? scaledSize.x : scaledSize.y) / 2f + 0.01f;
+        float distance = (Mathf.Abs(dir.x) > Mathf.Abs(dir.y) ? scaledSize.x : scaledSize.y) / 2f + 0.01f; // se adapta al ancho y alto del gameobject
         float distanceY = (scaledSize.y / 2f) * 0.9f; // un poco menos para no chocar esquinas
         Vector2 perp = new Vector2(-dir.y, dir.x);
 
@@ -131,8 +131,13 @@ public class PushableObject : MonoBehaviour
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Caja"))
             {
                 PushableObject next = hit.collider.GetComponent<PushableObject>();
-                if (next != null)
-                    canMove = next.CanMove(dir);
+                if (next != null && next.CanMove(direction))
+                {
+                    // Fuerza a la caja a calcular sus tres rayos antes de moverse
+                    if (!next.DetectarFrente(direction, out RaycastHit2D nextHit))
+                        next.Push(direction);
+                }
+
             }
         }
 
@@ -151,7 +156,7 @@ public class PushableObject : MonoBehaviour
     }
     public void Validador(Transform pos)
     {
-        target = pos.transform;
+        //target = pos.transform;
         if (onCollision) return;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
@@ -164,22 +169,4 @@ public class PushableObject : MonoBehaviour
 
         return hitWall.collider != null;
     }
-    //public bool CanMove(Vector2 dir)
-    //{
-    //    Vector2 start = (Vector2)transform.position + dir * distance;
-
-    //    RaycastHit2D hitWall = Physics2D.Raycast(start, dir, amplitud, LayerMask.GetMask("Wall"));
-    //    if (hitWall) return false;
-
-    //    RaycastHit2D hitBox = Physics2D.Raycast(start, dir, amplitud, LayerMask.GetMask("Caja"));
-    //    if (hitBox)
-    //    {
-    //        PushableObject next = hitBox.collider.GetComponent<PushableObject>();
-    //        if (next != null)
-    //            return next.CanMove(dir);
-    //    }
-
-    //    return true;
-    //}
-
 }

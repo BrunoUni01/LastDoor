@@ -28,7 +28,7 @@ public class Validador : MonoBehaviour
         validacion = placa.Validacion(caja);
         if (validacion)
         {
-            collision.gameObject.GetComponent<PushableObject>().Validador(transform);
+            //collision.gameObject.GetComponent<PushableObject>().Validador(transform);
             atraer = false;
         }
 
@@ -38,7 +38,7 @@ public class Validador : MonoBehaviour
         if (!collision.CompareTag("CajaPuzTres")) { return; }
         if (validacion)
         {
-            collision.gameObject.GetComponent<PushableObject>().target = null;
+            //collision.gameObject.GetComponent<PushableObject>().target = null;
             validacion = false;
             atraer = true;
         }
