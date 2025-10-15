@@ -131,11 +131,20 @@ public class PushableObject : MonoBehaviour
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Caja"))
             {
                 PushableObject next = hit.collider.GetComponent<PushableObject>();
-                if (next != null && next.CanMove(direction))
+                if (next == null)
                 {
-                    // Fuerza a la caja a calcular sus tres rayos antes de moverse
-                    if (!next.DetectarFrente(direction, out RaycastHit2D nextHit))
-                        next.Push(direction);
+                    canMove = false;
+                    //// Fuerza a la caja a calcular sus tres rayos antes de moverse
+                    //if (!next.DetectarFrente(dir, out RaycastHit2D nextHit))
+                    //    next.Push(dir);
+                }
+                else 
+                {
+                    canMove = next.CanMove(dir);
+                    if (canMove) 
+                    {
+                        next.Push(dir);
+                    }
                 }
 
             }
