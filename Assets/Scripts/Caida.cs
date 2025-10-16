@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Caida : MonoBehaviour
+public class Caida : MonoBehaviour // Codigo provisional, esta sujeto a cambios más adelante
 {
     private Rigidbody2D body;
     public Transform spawnDestino;
