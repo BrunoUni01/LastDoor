@@ -25,14 +25,14 @@ public class Caida : MonoBehaviour
             Invoke(nameof(Respawn),2f);
             fall1 = false;
         }
-        else if (estante)
+        if (estante)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 isTrapdoor = true;
             }
         }
-        else if (fall2)
+        if (fall2 && isTrapdoor)
         {
             Invoke(nameof(Respawn), 2f);
             fall2 = false;
@@ -57,11 +57,7 @@ public class Caida : MonoBehaviour
         }
         if (collision.CompareTag("Tabla2"))
         {
-            print("kjsdjka");
-            if (isTrapdoor)
-            {
-                fall2 = true;
-            }
+            fall2 = true;
         }
     }
 
