@@ -11,6 +11,9 @@ TagManager:
   - Green
   - Puzzle 2
   - CajaPuzTres
+  - Tabla
+  - Tabla2
+  - Estante
   layers:
   - Default
   - TransparentFX
