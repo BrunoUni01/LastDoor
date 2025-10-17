@@ -21,49 +21,66 @@ public class PullBox : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.collider.CompareTag("Player"))
+    //    {
+    //        dragging = true;
+    //        player = collision.transform;
+    //    }
+    //}
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.CompareTag("Player"))
-        {
-            dragging = true;
-            player = collision.transform;
-        }
+        if (!collision.CompareTag("Player")) return;
+        player = collision.transform;
+        dragging = true;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player") || transform.parent) return;
+        player = null;
+        dragging = false;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            dragging = false;
-            player = null;
-        }
-    }
-    void Pull() 
-    {
-        if (!dragging) return;
-        if (Input.GetKey(KeyCode.R))
-        {
-            moveBox = true;
-        }
-        else 
-        {
-            moveBox = false;
-        }
-    }
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.collider.CompareTag("Player"))
+    //    {
+    //        dragging = false;
+    //        player = null;
+    //    }
+    //}
     private void FixedUpdate()
     {
-        Pull();
-        if (!moveBox || player == null) return;
-
-        Vector2 direction = (player.position - transform.position);
-        float distance = direction.magnitude;
-
-        // Solo moverse si el jugador se aleja más de la distancia límite
-        if (distance > maxDistance)
+        Interact();
+    }
+    void Interact() 
+    {
+        if (/*!dragging || */!player) return;
+        if (Input.GetKey(KeyCode.R))
         {
-            direction.Normalize();
-            Vector2 targetPos = rb.position + direction * followSpeed * Time.fixedDeltaTime;
-            rb.MovePosition(targetPos);
+            //transform.SetParent(player);
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            //rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            rb.position = player.position + Vector3.left * 1.1f;
+        }
+        else
+        {
+            //print("a");
+            //transform.SetParent(null);
+            rb.bodyType = RigidbodyType2D.Static;
         }
     }
+    //private void FixedUpdate()
+    //{
+    //    Pull();
+    //    if (!moveBox|| player == null) return;
+
+    //    Vector2 direction = new(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+    //    direction.Normalize();
+    //    Vector2 targetPos = rb.position + direction * followSpeed * Time.fixedDeltaTime;
+    //    rb.linearVelocity = direction;
+
+    //    Solo moverse si el jugador se aleja más de la distancia límite
+    //}
 }
