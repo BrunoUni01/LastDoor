@@ -17,7 +17,7 @@ public class KeyManager : MonoBehaviour
 
     private void Awake()
     {
-        int n = Random.Range(6, 9); // asigno cantidad
+        int n = Random.Range(8, 13); // asigno cantidad
         codigos = new int[n]; // inicializa la variable
         for (int i = 0; i < codigos.Length; i++) //inicializan los códigos
             codigos[i] = i;
@@ -28,6 +28,14 @@ public class KeyManager : MonoBehaviour
             codigos[i] = codigos[j];
             codigos[j] = temp;
         }
+        for (int i = puntosSpawn.Count - 1; i > 0; i--) // Se mezclan los códigos
+        {
+            var j = Random.Range(0, i + 1);
+            var temp = puntosSpawn[i];
+            puntosSpawn[i] = puntosSpawn[j];
+            puntosSpawn[j] = temp;
+        }
+
         llaves = new List<GameObject>();//
         CrearLlaves(n);
     }
@@ -45,15 +53,6 @@ public class KeyManager : MonoBehaviour
     void Start()
     {
 
-
-        //for (int i = n - 1; i > 0; i--) //barajea los indices de forma random
-        //{
-        //    int j = Random.Range(0, i + 1);
-        //    int temp = indices[i];
-        //    indices[i] = indices[j];
-        //    indices[j] = temp;
-        //}
-
         for (int i = n - 1; i > 0; i--) // llaves
         {
             var j = Random.Range(0, i + 1);
@@ -69,59 +68,25 @@ public class KeyManager : MonoBehaviour
             llaves[i].GetComponent<Key>().spawn = llaves[j].GetComponent<Key>().spawn;
             llaves[j].GetComponent<Key>().spawn = temp;
         }
-        for (int i = 0; i < llaves.Count; i++) // se asignan los códigos a las llaves
+        int LF = Random.Range(2, 5);
+        int LR = llaves.Count - LF; // 8 - 2 = 6 
+        List<GameObject> llavesReales = new List<GameObject>();
+        for (int i = 0; i < LR; i++) // se asignan los códigos a las llaves
         {
             llaves[i].GetComponent<Key>().codigo = codigos[i];
+            llavesReales.Add(llaves[i]);
         }
-        AsignarCodigos();
-        //Respawn();
-
-
-
-
-
-
-    }
-    void Respawn()
-    {
-        foreach (var item in llaves) //spawnea las llaves en sus respectivas posiciones
+        for (int i = LR; i < LR + LF; i++) 
         {
-            item.GetComponent<Key>().Respawn();
+            llaves[i].GetComponent<Key>().codigo = -1;
         }
+        AsignarCodigos(llavesReales);
+
+
     }
-    void AsignarCodigos()
+    void AsignarCodigos(List<GameObject> RealKeys)
     {
-        candados.AsignarCodigos(llaves);
+        candados.AsignarCodigos(RealKeys);
     }
 }
 
-//public int[] CodigosIguales() 
-//{
-//    return codigos;
-//}
-
-//private void VerificarOrden() 
-//{
-//    for (int i = 0; i < llaves.Count; i++)
-//    {
-//        if (llaves[i].activado && (llaves[i].codigo == candados.CodigosRecibidos()[i])) 
-//        {
-//            candados.CodigosActivados[i] = true;
-//        }
-//    }
-//}
-//private void VerificarOrden()
-//{
-//    for (int i = 0; i < PalancaList.Count - 1; i++) // verificar todos los indices
-//    {
-//        if (i != 0) // no tomar en cuenta el primero
-//        {
-//            int j = i + 1;
-//            if (PalancaList[indices[i]].Activado == false && PalancaList[indices[j]].Activado == true) //verifica si ha accionado la palanca en el orden correcto
-//            {
-//                ResetPalancas(); //reset si no se hizo en el orden correcto
-//            }
-
-//        }
-//    }
-//}

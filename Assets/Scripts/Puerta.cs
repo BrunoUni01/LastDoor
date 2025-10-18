@@ -1,6 +1,7 @@
 using UnityEditor.EditorTools;
 using UnityEngine;
 
+
 public class Puerta : MonoBehaviour
 {
     public Cuarto cuartoDestino;
@@ -9,10 +10,20 @@ public class Puerta : MonoBehaviour
     [SerializeField] Scroll scrollActual;
     [SerializeField] Scroll siguienteScroll;
     [HideInInspector] public bool locked = false;
+    [SerializeField] SpriteRenderer activado;
 
     private void Awake()
     {
         //candado = null;
+    }
+    void LlaveCorrecta() 
+    {
+        activado.color = Color.green;
+        Invoke(nameof(LlaveIncorrecta), 1);
+    }
+    void LlaveIncorrecta() 
+    {
+        activado.color= Color.red;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -37,7 +48,15 @@ public class Puerta : MonoBehaviour
                 //Key llave = jugador.objetoPermanente.GetComponent<Key>();
                 //if (llave == null) return;
                 print("si tiene llave");
-                if (candado.VerificarLlave(llave)) Destroy(jugador.objetoPermanente);
+                if (candado.VerificarLlave(llave))
+                {
+                    LlaveCorrecta();
+                    Destroy(jugador.objetoPermanente);
+                }
+                else 
+                {
+                    LlaveIncorrecta();
+                }
             }
             else 
             {
