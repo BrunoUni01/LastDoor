@@ -14,6 +14,7 @@ TagManager:
   - Tabla
   - Tabla2
   - Estante
+  - Llave
   layers:
   - Default
   - TransparentFX

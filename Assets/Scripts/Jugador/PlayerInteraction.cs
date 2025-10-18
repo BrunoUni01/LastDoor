@@ -1,13 +1,19 @@
+using System;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
     public GameObject MenuPausa;
     public bool enpausa;
+    [SerializeField] private bool agarraLlave;
     public GameObject puzzle2;
     //[HideInInspector] public bool puzzleFinish;
     [SerializeField] private bool puzzleInteract;
     private PlayerHealth jugador;
+    public GameObject objetoPermanente;
+    public GameObject objetoNoPermanente;
+    [SerializeField] float offset = 1.2f;
+    [SerializeField] private GameObject objetoSuelo;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,6 +41,10 @@ public class PlayerInteraction : MonoBehaviour
         {
             Puzzle2();
         }
+        if (agarraLlave && Input.GetKeyDown(KeyCode.E))
+        {
+            PickUpLlave();
+        }
     }
 
     public void Pausar()
@@ -42,6 +52,16 @@ public class PlayerInteraction : MonoBehaviour
         MenuPausa.SetActive(true);
         Time.timeScale = 0f;
         enpausa = true;
+    }
+    private void PickUpLlave()
+    {
+        if (objetoPermanente != null) 
+        {
+            Vector2 direction = new Vector2(Mathf.Sign(transform.localScale.x), Mathf.Sign(transform.localScale.y));
+            objetoPermanente.transform.position = (Vector2)(transform.position) + (direction * offset);
+        }
+        objetoPermanente = objetoSuelo;
+        objetoPermanente.gameObject.transform.position = new Vector2(9000, 9000);
     }
 
     public void Resumir()
@@ -62,14 +82,19 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Puzzle 2"))
+        if (collision.CompareTag("Puzzle 2"))
         {
             puzzleInteract = true;
+        }
+        if (collision.CompareTag("Llave"))
+        {
+            agarraLlave = true;
+            objetoSuelo = collision.gameObject;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Finish")) 
+        if (collision.CompareTag("Finish"))
         {
             puzzleInteract = false;
         }
@@ -77,5 +102,14 @@ public class PlayerInteraction : MonoBehaviour
         {
             puzzleInteract = false;
         }
+        if (collision.CompareTag("Llave"))
+        {
+            agarraLlave = false;
+            objetoSuelo = null;
+            
+
+        }
+
+
     }
 }

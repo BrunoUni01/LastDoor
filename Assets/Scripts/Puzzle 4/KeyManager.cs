@@ -1,15 +1,18 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class KeyManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    List<Transform> puntosSpawn; // 10 puntos de spawn
-    List<Key> llaves; // 6 - 8 llaves // 1 - 3 
-    Candados candados;
-    int[] codigos;
+    [SerializeField] List<Transform> puntosSpawn; // 10 puntos de spawn
+    [SerializeField] List<GameObject> llaves; // 6 - 8 llaves // 1 - 3 
+    [SerializeField] Candados candados;
+    [SerializeField] int[] codigos;
     [SerializeField] private int n;
+    [SerializeField] GameObject llave;
+
 
 
     private void Awake()
@@ -25,10 +28,24 @@ public class KeyManager : MonoBehaviour
             codigos[i] = codigos[j];
             codigos[j] = temp;
         }
+        llaves = new List<GameObject>();//
+        CrearLlaves(n);
+    }
+    void CrearLlaves(int n)
+    {
+        for (int i = n - 1; i > 0; i--)
+        {
+            var j = Random.Range(0, i + 1);
+            var temp = puntosSpawn[i];
+            puntosSpawn[i] = puntosSpawn[j];
+            puntosSpawn[j] = temp;
+            llaves.Add(Instantiate(llave, puntosSpawn[i].position,Quaternion.identity));
+        }
     }
     void Start()
     {
-       
+
+
         //for (int i = n - 1; i > 0; i--) //barajea los indices de forma random
         //{
         //    int j = Random.Range(0, i + 1);
@@ -37,7 +54,7 @@ public class KeyManager : MonoBehaviour
         //    indices[j] = temp;
         //}
 
-        for (int i = n - 1 ; i > 0; i--) // llaves
+        for (int i = n - 1; i > 0; i--) // llaves
         {
             var j = Random.Range(0, i + 1);
             var temp = llaves[i];
@@ -48,68 +65,63 @@ public class KeyManager : MonoBehaviour
         for (int i = n - 1; i > 0; i--) // puntos de spawn
         {
             var j = Random.Range(0, i + 1);
-            var temp = llaves[i].spawn;
-            llaves[i].spawn = llaves[j].spawn;
-            llaves[j].spawn = temp;
+            var temp = llaves[i].GetComponent<Key>().spawn;
+            llaves[i].GetComponent<Key>().spawn = llaves[j].GetComponent<Key>().spawn;
+            llaves[j].GetComponent<Key>().spawn = temp;
         }
-        for (int i = 0; i < codigos.Length; i++) // se asignan los códigos a las llaves
+        for (int i = 0; i < llaves.Count; i++) // se asignan los códigos a las llaves
         {
-            llaves[i].codigo = codigos[i];
+            llaves[i].GetComponent<Key>().codigo = codigos[i];
         }
         AsignarCodigos();
-        Respawn();
-       
+        //Respawn();
+
 
 
 
 
 
     }
-    public int[] CodigosIguales() 
-    {
-        return codigos;
-    }
-
-    private void VerificarOrden() 
-    {
-        for (int i = 0; i < llaves.Count; i++)
-        {
-            if (llaves[i].activado && (llaves[i].codigo == candados.CodigosRecibidos()[i])) 
-            {
-                candados.CodigosActivados[i] = true;
-            }
-        }
-    }
-    //private void VerificarOrden()
-    //{
-    //    for (int i = 0; i < PalancaList.Count - 1; i++) // verificar todos los indices
-    //    {
-    //        if (i != 0) // no tomar en cuenta el primero
-    //        {
-    //            int j = i + 1;
-    //            if (PalancaList[indices[i]].Activado == false && PalancaList[indices[j]].Activado == true) //verifica si ha accionado la palanca en el orden correcto
-    //            {
-    //                ResetPalancas(); //reset si no se hizo en el orden correcto
-    //            }
-
-    //        }
-    //    }
-    //}
-    void Respawn() 
+    void Respawn()
     {
         foreach (var item in llaves) //spawnea las llaves en sus respectivas posiciones
         {
-            item.Respawn();
+            item.GetComponent<Key>().Respawn();
         }
     }
-    void AsignarCodigos() 
+    void AsignarCodigos()
     {
         candados.AsignarCodigos(llaves);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
+
+//public int[] CodigosIguales() 
+//{
+//    return codigos;
+//}
+
+//private void VerificarOrden() 
+//{
+//    for (int i = 0; i < llaves.Count; i++)
+//    {
+//        if (llaves[i].activado && (llaves[i].codigo == candados.CodigosRecibidos()[i])) 
+//        {
+//            candados.CodigosActivados[i] = true;
+//        }
+//    }
+//}
+//private void VerificarOrden()
+//{
+//    for (int i = 0; i < PalancaList.Count - 1; i++) // verificar todos los indices
+//    {
+//        if (i != 0) // no tomar en cuenta el primero
+//        {
+//            int j = i + 1;
+//            if (PalancaList[indices[i]].Activado == false && PalancaList[indices[j]].Activado == true) //verifica si ha accionado la palanca en el orden correcto
+//            {
+//                ResetPalancas(); //reset si no se hizo en el orden correcto
+//            }
+
+//        }
+//    }
+//}

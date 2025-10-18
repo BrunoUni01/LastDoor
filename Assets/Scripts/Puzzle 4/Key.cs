@@ -11,7 +11,7 @@ public class Key : MonoBehaviour
     {
         activado = false;
     }
-    public void Respawn() 
+    public void Respawn()
     {
         transform.position = spawn.position;
     }
@@ -19,10 +19,10 @@ public class Key : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void DestroyKey() 
+    public void DestroyKey()
     {
         Destroy(gameObject);
     }
