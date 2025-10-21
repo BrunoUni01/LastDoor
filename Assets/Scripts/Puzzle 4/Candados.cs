@@ -9,7 +9,7 @@ public class Candados : MonoBehaviour
     public bool[] CodigosActivados { get => activados; set => activados = value; }
     void Start()
     {
-        codigo = new List<int>();
+        //codigo = new List<int>();
     }
     public void AsignarCodigos(List<GameObject> llaves)
     {

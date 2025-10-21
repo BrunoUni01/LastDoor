@@ -14,10 +14,10 @@ public class KeyManager : MonoBehaviour
     [SerializeField] GameObject llave;
 
 
-
+    
     private void Awake()
     {
-        int n = Random.Range(8, 13); // asigno cantidad
+        n = Random.Range(8, 13); // asigno cantidad
         codigos = new int[n]; // inicializa la variable
         for (int i = 0; i < codigos.Length; i++) //inicializan los códigos
             codigos[i] = i;
@@ -39,6 +39,7 @@ public class KeyManager : MonoBehaviour
         llaves = new List<GameObject>();//
         CrearLlaves(n);
     }
+
     void CrearLlaves(int n)
     {
         for (int i = n - 1; i > 0; i--)
@@ -53,7 +54,7 @@ public class KeyManager : MonoBehaviour
     void Start()
     {
 
-        for (int i = n - 1; i > 0; i--) // llaves
+        for (int i = llaves.Count - 1; i > 0; i--) // llaves
         {
             var j = Random.Range(0, i + 1);
             var temp = llaves[i];
@@ -61,7 +62,7 @@ public class KeyManager : MonoBehaviour
             llaves[j] = temp;
         }
 
-        for (int i = n - 1; i > 0; i--) // puntos de spawn
+        for (int i = llaves.Count - 1; i > 0; i--) // puntos de spawn
         {
             var j = Random.Range(0, i + 1);
             var temp = llaves[i].GetComponent<Key>().spawn;

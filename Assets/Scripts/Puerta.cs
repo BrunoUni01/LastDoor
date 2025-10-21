@@ -37,25 +37,25 @@ public class Puerta : MonoBehaviour
         //}
         if (other.CompareTag("Player"))
         {
-            if (candado == null) return;
-            if (!candado.CandadosSacados())
+            if (candado == null) return; // si no tiene candado que no ejecute su código
+            if (!candado.CandadosSacados()) //verifica si todos los candados han sido abiertos
             {
-                locked = true;
-                PlayerInteraction jugador = other.GetComponent<PlayerInteraction>();
-                if (jugador == null) return;
-                if (jugador.objetoPermanente == null) return;
-                if (!jugador.objetoPermanente.TryGetComponent<Key>(out Key llave)) return;
+                locked = true; // coloca el seguro a la puerta
+                PlayerInteraction jugador = other.GetComponent<PlayerInteraction>(); // consigue el interactor del player
+                if (jugador == null) return; // seguridad
+                if (jugador.objetoPermanente == null) return; // seguridad
+                if (!jugador.objetoPermanente.TryGetComponent<Key>(out Key llave)) return; // verifica si el objeto permanente del player es una llave o no
                 //Key llave = jugador.objetoPermanente.GetComponent<Key>();
                 //if (llave == null) return;
                 print("si tiene llave");
-                if (candado.VerificarLlave(llave))
+                if (candado.VerificarLlave(llave)) // verificación de la llave
                 {
                     LlaveCorrecta();
                     Destroy(jugador.objetoPermanente);
                 }
                 else 
                 {
-                    LlaveIncorrecta();
+                    LlaveIncorrecta(); // para la animación
                 }
             }
             else 
