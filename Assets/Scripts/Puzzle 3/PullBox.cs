@@ -40,11 +40,12 @@ public class PullBox : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player") && !dragging)
-        {
+        if (!collision.CompareTag("Player")) return;
+        
             player = null;
+            dragging = false; 
             //dragging = false;
-        }
+        
     }
 
     //private void OnCollisionExit2D(Collision2D collision)
@@ -61,7 +62,12 @@ public class PullBox : MonoBehaviour
     }
     void Interact() 
     {
-        if (player == null) return;
+        if (player == null) 
+        {
+            rb.bodyType = RigidbodyType2D.Static;
+            dragging = false;
+            return;
+        }
         if (Input.GetKey(KeyCode.R))
         {
             //transform.SetParent(player);
@@ -84,7 +90,7 @@ public class PullBox : MonoBehaviour
     Vector2 Direccion() 
     {
         BoxCollider2D playerCol = player.GetComponent<BoxCollider2D>();
-        BoxCollider2D boxCol = GetComponent<BoxCollider2D>();
+        BoxCollider2D boxCol = GetComponentInParent<BoxCollider2D>();
 
         Vector2 playerSize = Vector2.Scale(playerCol.size, player.lossyScale);
         Vector2 boxSize = Vector2.Scale(boxCol.size, transform.lossyScale);
@@ -92,7 +98,7 @@ public class PullBox : MonoBehaviour
         Vector2 dir = (transform.position - player.position).normalized;
         if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
         {
-            distance = (playerSize.x + boxSize.x) / 2f + 0.10f;
+            distance = (playerSize.x + boxSize.x) / 2f - 0.20f;
             if (dir.x > 0)
             {
                 //distance = 1.1f;
@@ -106,7 +112,7 @@ public class PullBox : MonoBehaviour
         }
         else 
         {
-            distance = (playerSize.y + boxSize.y) / 2f + 0.10f;
+            distance = (playerSize.y + boxSize.y) / 2f - 0.20f;
             if (dir.y > 0)
             {
                 //distance = 1.6f;
