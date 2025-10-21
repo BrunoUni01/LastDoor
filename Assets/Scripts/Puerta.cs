@@ -37,30 +37,32 @@ public class Puerta : MonoBehaviour
         //}
         if (other.CompareTag("Player"))
         {
-            if (candado == null) return; // si no tiene candado que no ejecute su código
-            if (!candado.CandadosSacados()) //verifica si todos los candados han sido abiertos
-            {
-                locked = true; // coloca el seguro a la puerta
-                PlayerInteraction jugador = other.GetComponent<PlayerInteraction>(); // consigue el interactor del player
-                if (jugador == null) return; // seguridad
-                if (jugador.objetoPermanente == null) return; // seguridad
-                if (!jugador.objetoPermanente.TryGetComponent<Key>(out Key llave)) return; // verifica si el objeto permanente del player es una llave o no
-                //Key llave = jugador.objetoPermanente.GetComponent<Key>();
-                //if (llave == null) return;
-                print("si tiene llave");
-                if (candado.VerificarLlave(llave)) // verificación de la llave
+            if (candado != null)
+            {  // si no tiene candado que no ejecute su código
+                if (!candado.CandadosSacados()) //verifica si todos los candados han sido abiertos
                 {
-                    LlaveCorrecta();
-                    Destroy(jugador.objetoPermanente);
+                    locked = true; // coloca el seguro a la puerta
+                    PlayerInteraction jugador = other.GetComponent<PlayerInteraction>(); // consigue el interactor del player
+                    if (jugador == null) return; // seguridad
+                    if (jugador.objetoPermanente == null) return; // seguridad
+                    if (!jugador.objetoPermanente.TryGetComponent<Key>(out Key llave)) return; // verifica si el objeto permanente del player es una llave o no
+                                                                                               //Key llave = jugador.objetoPermanente.GetComponent<Key>();
+                                                                                               //if (llave == null) return;
+                    print("si tiene llave");
+                    if (candado.VerificarLlave(llave)) // verificación de la llave
+                    {
+                        LlaveCorrecta();
+                        Destroy(jugador.objetoPermanente);
+                    }
+                    else
+                    {
+                        LlaveIncorrecta(); // para la animación
+                    }
                 }
-                else 
+                else
                 {
-                    LlaveIncorrecta(); // para la animación
+                    locked = false;
                 }
-            }
-            else 
-            {
-                locked = false;
             }
 
         }

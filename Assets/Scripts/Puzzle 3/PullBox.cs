@@ -8,11 +8,14 @@ public class PullBox : MonoBehaviour
     public float followSpeed = 0.5f;
     private PlayerMovement jugador;
     public float maxDistance = 1.2f;
+    private float distance;
+    private bool a = true;
 
     private void Awake()
     {
         moveBox = false;
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponentInParent<Rigidbody2D>();
+
     }
     private void Start()
     {
@@ -33,13 +36,15 @@ public class PullBox : MonoBehaviour
     {
         if (!collision.CompareTag("Player")) return;
         player = collision.transform;
-        dragging = true;
+        dragging = false;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player") || transform.parent) return;
-        player = null;
-        dragging = false;
+        if (!collision.CompareTag("Player") && !dragging)
+        {
+            player = null;
+            //dragging = false;
+        }
     }
 
     //private void OnCollisionExit2D(Collision2D collision)
@@ -56,19 +61,62 @@ public class PullBox : MonoBehaviour
     }
     void Interact() 
     {
-        if (/*!dragging || */!player) return;
+        if (player == null) return;
         if (Input.GetKey(KeyCode.R))
         {
             //transform.SetParent(player);
+            dragging = true;
+            Vector2 pos = Direccion();
             rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.gravityScale = 0f;
             //rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            rb.position = player.position + Vector3.left * 1.1f;
+            rb.position = (Vector2)player.position + pos * distance;
         }
         else
         {
             //print("a");
             //transform.SetParent(null);
             rb.bodyType = RigidbodyType2D.Static;
+            dragging = false;
+        }
+    }
+
+    Vector2 Direccion() 
+    {
+        BoxCollider2D playerCol = player.GetComponent<BoxCollider2D>();
+        BoxCollider2D boxCol = GetComponent<BoxCollider2D>();
+
+        Vector2 playerSize = Vector2.Scale(playerCol.size, player.lossyScale);
+        Vector2 boxSize = Vector2.Scale(boxCol.size, transform.lossyScale);
+
+        Vector2 dir = (transform.position - player.position).normalized;
+        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+        {
+            distance = (playerSize.x + boxSize.x) / 2f + 0.10f;
+            if (dir.x > 0)
+            {
+                //distance = 1.1f;
+                return Vector2.right;
+            }
+            else
+            {
+                //distance = 1.1f;
+                return Vector2.left;
+            }
+        }
+        else 
+        {
+            distance = (playerSize.y + boxSize.y) / 2f + 0.10f;
+            if (dir.y > 0)
+            {
+                //distance = 1.6f;
+                return Vector2.up;
+            }
+            else 
+            {
+                //distance = 1.6f;
+                return Vector2.down;
+            }
         }
     }
     //private void FixedUpdate()
