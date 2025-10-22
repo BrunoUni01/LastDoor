@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class DoorSpawn : MonoBehaviour
 {
-    [SerializeField] private Transform spawnDestino;
-    [SerializeField] private bool siguienteHabitacion;
+    [SerializeField] public Transform spawnDestino;
+    [SerializeField] public bool siguienteHabitacion;
     [SerializeField] private Scroll scrollActual;
     [SerializeField] private Cuarto cuartoDestino;
     [SerializeField] private Scroll siguienteScroll;
