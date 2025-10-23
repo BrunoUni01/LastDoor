@@ -7,6 +7,10 @@ public class DoorPuzzle : MonoBehaviour
 
     [SerializeField] private GameObject[] puertas;
 
+    private void Awake()
+    {
+        AsignarPosicionesyBools();
+    }
     void AsignarPosicionesyBools()
     {
 
@@ -20,7 +24,30 @@ public class DoorPuzzle : MonoBehaviour
             var temp2 = puertas[i].GetComponent<DoorSpawn>().siguienteHabitacion;
             puertas[i].GetComponent<DoorSpawn>().siguienteHabitacion = puertas[j].GetComponent<DoorSpawn>().siguienteHabitacion;
             puertas[j].GetComponent<DoorSpawn>().siguienteHabitacion = temp2;
+            Verificacion(j);
         }
 
+    }
+    void Verificacion(int i) 
+    {
+        Transform puerta = puertas[i].GetComponent<DoorSpawn>().spawnDestino;
+        Transform hijo = puertas[i].GetComponent<DoorSpawn>().GetComponentInChildren<Transform>();
+        if (puerta == hijo) 
+        {
+            Shuffle(i);
+        }
+        return;
+    }
+    void Shuffle(int pos) 
+    {
+        var j = Random.Range(0, pos + 1);
+        var temp = puertas[pos - 1].GetComponent<DoorSpawn>().spawnDestino;
+        puertas[pos - 1].GetComponent<DoorSpawn>().spawnDestino = puertas[j].GetComponent<DoorSpawn>().spawnDestino;
+        puertas[j].GetComponent<DoorSpawn>().spawnDestino = temp;
+
+        var temp2 = puertas[pos - 1].GetComponent<DoorSpawn>().siguienteHabitacion;
+        puertas[pos - 1].GetComponent<DoorSpawn>().siguienteHabitacion = puertas[j].GetComponent<DoorSpawn>().siguienteHabitacion;
+        puertas[j].GetComponent<DoorSpawn>().siguienteHabitacion = temp2;
+        Verificacion(j);
     }
 }
