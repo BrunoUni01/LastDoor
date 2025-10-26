@@ -50,7 +50,7 @@ public class PuzzlePalancas : MonoBehaviour
     {
         for (int i = 0; i < PalancaList.Count - 1; i++) // verificar todos los indices
         {
-            if (i != 0) // no tomar en cuenta el primero
+            //if (i != 0) // no tomar en cuenta el primero
             {
                 int j = i + 1;
                 if (PalancaList[indices[i]].Activado == false && PalancaList[indices[j]].Activado == true) //verifica si ha accionado la palanca en el orden correcto

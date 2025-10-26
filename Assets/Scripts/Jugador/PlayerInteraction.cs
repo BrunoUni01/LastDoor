@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public GameObject MenuPausa;
-    public bool enpausa;
     [SerializeField] private bool agarraLlave;
     public GameObject puzzle2;
     //[HideInInspector] public bool puzzleFinish;
@@ -14,10 +12,9 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject objetoNoPermanente;
     [SerializeField] float offset = 1.2f;
     [SerializeField] private GameObject objetoSuelo;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        MenuPausa.SetActive(false);
+        
         puzzleInteract = false;
         jugador = FindFirstObjectByType<PlayerHealth>();
         //puzzleFinish = false;
@@ -26,17 +23,7 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (enpausa)
-            {
-                Resumir();
-            }
-            else
-            {
-                Pausar();
-            }
-        }
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
             Puzzle2();
@@ -47,12 +34,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    public void Pausar()
-    {
-        MenuPausa.SetActive(true);
-        Time.timeScale = 0f;
-        enpausa = true;
-    }
+    
     private void PickUpLlave()
     {
         if (objetoPermanente != null) 
@@ -64,12 +46,7 @@ public class PlayerInteraction : MonoBehaviour
         objetoPermanente.gameObject.transform.position = new Vector2(9000, 9000);
     }
 
-    public void Resumir()
-    {
-        MenuPausa.SetActive(false);
-        Time.timeScale = 1f;
-        enpausa = false;
-    }
+    
 
     void Puzzle2()
     {

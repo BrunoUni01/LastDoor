@@ -27,19 +27,35 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //float x = Input.GetAxisRaw("Horizontal");
+        //float y = Input.GetAxisRaw("Vertical");
+
+        //Vector2 movimiento = new Vector2(x, y);
+        //body.linearVelocity = movimiento.normalized * currentSpeed;
+        //ActivarPalanca();
+
+        //if (Input.GetKeyDown(KeyCode.LeftShift))
+        //{
+        //    if(!inDash)
+        //    Dash();
+        //}
+        ActivarPalanca();
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (!inDash)
+                Dash();
+        }
+    }
+    private void FixedUpdate()
+    {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
         Vector2 movimiento = new Vector2(x, y);
         body.linearVelocity = movimiento.normalized * currentSpeed;
-        ActivarPalanca();
+        //ActivarPalanca();
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            if(!inDash)
-            Dash();
-        }
-       
+        
     }
     void Dash()
     {
