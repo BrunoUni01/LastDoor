@@ -180,3 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnDestino: {fileID: 0}
+  siguienteHabitacion: 0
+  scrollActual: {fileID: 0}
+  cuartoDestino: {fileID: 0}
+  siguienteScroll: {fileID: 0}

@@ -10,10 +10,10 @@ public class Escombros : MonoBehaviour
     }
     private void CerraPuzzle()
     {
-        if (escombros > 0)
+        if (escombros <= 0)
         {
             //unlock
-            enabled = false;
+            gameObject.SetActive(false);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,5 +25,9 @@ public class Escombros : MonoBehaviour
     {
         if (!collision.CompareTag("Escombros")) return;
         escombros -= 1;
+    }
+    public bool FinEscombros() 
+    {
+        return escombros <= 0;
     }
 }
