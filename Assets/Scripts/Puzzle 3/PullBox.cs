@@ -71,7 +71,8 @@ public class PullBox : MonoBehaviour
     {
         if (player == null) 
         {
-            rb.bodyType = RigidbodyType2D.Static;
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             dragging = false;
             return;
         }
@@ -81,6 +82,7 @@ public class PullBox : MonoBehaviour
             dragging = true;
             Vector2 dir = Direccion();
             rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.gravityScale = 0f;
             //rb.constraints = RigidbodyConstraints2D.FreezeAll;
             Vector2 targetPos = (Vector2)player.position + dir * distance;
@@ -90,7 +92,8 @@ public class PullBox : MonoBehaviour
         {
             //print("a");
             //transform.SetParent(null);
-            rb.bodyType = RigidbodyType2D.Static;
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             dragging = false;
             //inPlayer = false;
         }
@@ -99,7 +102,7 @@ public class PullBox : MonoBehaviour
 
     Vector2 Direccion() 
     {
-        BoxCollider2D playerCol = player.GetComponent<BoxCollider2D>();
+        CapsuleCollider2D playerCol = player.GetComponent<CapsuleCollider2D>();
         //BoxCollider2D boxCol = GetComponentInParent<BoxCollider2D>();
 
         Vector2 playerSize = Vector2.Scale(playerCol.size, player.lossyScale);
