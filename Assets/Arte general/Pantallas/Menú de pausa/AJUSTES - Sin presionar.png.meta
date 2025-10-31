@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e12c66192e703974e84374bdde14f9e2
+guid: 22314f01a98358b4a99a6b64188555e2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4296746523048748099
-    second: "Men\xFA de pausa_0"
+      213: 4268133370014325297
+    second: AJUSTES - Sin presionar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Men\xFA de pausa_0"
+      name: AJUSTES - Sin presionar_0
       rect:
         serializedVersion: 2
-        x: 58
-        y: 7
-        width: 125
-        height: 164
+        x: 5
+        y: 27
+        width: 80
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3442734923c11ab30800000000000000
-      internalID: 4296746523048748099
+      spriteID: 13ad1bdbfa47b3b30800000000000000
+      internalID: 4268133370014325297
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Men\xFA de pausa_0": 4296746523048748099
+      AJUSTES - Sin presionar_0: 4268133370014325297
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
