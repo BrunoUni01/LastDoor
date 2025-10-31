@@ -103,9 +103,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cuartoDestino: {fileID: 0}
   spawnDestino: {fileID: 0}
+  candado: {fileID: 0}
   scrollActual: {fileID: 0}
   siguienteScroll: {fileID: 0}
   locked: 0
+  activado: {fileID: 0}
 --- !u!61 &7439095303686586785
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -939,6 +941,82 @@ PrefabInstance:
     - target: {fileID: 2951685898007190595, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShapePathHash
+      value: -1696735026
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShadowCastingSource
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: 'managedReferences[-2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShadowShape2DProvider
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShadowShape2DComponent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShadowMesh.m_InitialTrim
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShapePath.Array.data[0].x
+      value: -1.1146488
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShapePath.Array.data[0].y
+      value: -0.8831208
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShapePath.Array.data[1].x
+      value: -1.1247982
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShapePath.Array.data[1].y
+      value: 2.2446513
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShapePath.Array.data[2].x
+      value: 1.0386583
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShapePath.Array.data[2].y
+      value: 2.2364457
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShapePath.Array.data[3].x
+      value: 1.0204557
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShapePath.Array.data[3].y
+      value: -0.9084747
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_PreviousShadowCastingSource
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
+      value: -0.04306996
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
+      value: 0.6680883
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
+      value: 1.0817282
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190689686866220679, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
+      value: 1.576563
       objectReference: {fileID: 0}
     - target: {fileID: 7932147630103646363, guid: ce8f659e8893ecd4995d685838d2889e, type: 3}
       propertyPath: camara

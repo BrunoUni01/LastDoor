@@ -19,7 +19,7 @@ public class Scroll : MonoBehaviour
     private GameManagerBotones gameOver;
     //[SerializeField] private AnimationCurve curveSpeed;
 
-
+    public float getFill { get => t / tiempo; }
     void Start()
     {
         gameOver = FindFirstObjectByType<GameManagerBotones>();
