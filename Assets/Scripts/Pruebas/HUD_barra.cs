@@ -17,11 +17,14 @@ public class HUD_barra : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //sprite.fillAmount = height;
         BarraFill();
     }
     void BarraFill() 
     {
         sprite.fillAmount = current.getFill;
+    }
+    public void ChangeScroll(Scroll current) 
+    {
+        this.current = current;
     }
 }

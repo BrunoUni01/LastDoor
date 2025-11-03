@@ -9,6 +9,7 @@ public class RoomManager : MonoBehaviour
     public CamaraController cameraController;
     private Cuarto cuartoActual;
     private Score jugador;
+    private HUD_barra hud_Barra;
     //private Scroll current;
     public bool isTransitioning { get; private set; }
     private void Awake()
@@ -16,6 +17,7 @@ public class RoomManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
         jugador = FindFirstObjectByType<Score>();
+        hud_Barra = FindFirstObjectByType<HUD_barra>();
     }
 
     public void EntrarCuarto(Cuarto nuevoCuarto, Vector3 spawnJugador, Scroll a)
@@ -44,6 +46,8 @@ public class RoomManager : MonoBehaviour
             jugador.ActualizarScroll(actual);
             actual.gameObject.SetActive(true);
         }
+        if(hud_Barra != null)
+        hud_Barra.ChangeScroll(actual);
 
 
         player.transform.position = spawnJugador;
