@@ -16,6 +16,7 @@ TagManager:
   - Estante
   - Llave
   - Escombros
+  - Pegamento
   layers:
   - Default
   - TransparentFX

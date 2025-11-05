@@ -110,7 +110,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6a188d4212b06694eaffa9c8def03dae, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -141,6 +141,8 @@ MonoBehaviour:
   cooldown: 0
   currentSpeed: 0
   palancaActual: {fileID: 0}
+  canMove: 0
+  inputCounter: 0
 --- !u!114 &7430775937773761244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +203,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6a188d4212b06694eaffa9c8def03dae, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

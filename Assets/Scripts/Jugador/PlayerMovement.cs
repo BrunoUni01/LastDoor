@@ -16,8 +16,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float currentSpeed;
     [SerializeField] private Palanca palancaActual;
     private bool puedeActivar;
+    public bool canMove;
+    [SerializeField] private int inputCounter = 0;
+    private bool isStuck;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    private void Start()
+    {
+        canMove = true;
+        isStuck = false;
+    }
 
     private void Awake()
     {
@@ -45,17 +52,20 @@ public class PlayerMovement : MonoBehaviour
             if (!inDash)
                 Dash();
         }
+        if (isStuck) TrampaPegamento();
     }
     private void FixedUpdate()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        if (canMove && !isStuck)
+        {
+            float x = Input.GetAxisRaw("Horizontal");
+            float y = Input.GetAxisRaw("Vertical");
 
-        Vector2 movimiento = new Vector2(x, y);
-        body.linearVelocity = movimiento.normalized * currentSpeed;
-        //ActivarPalanca();
-
-        
+            Vector2 movimiento = new Vector2(x, y);
+            body.linearVelocity = movimiento.normalized * currentSpeed;
+            //ActivarPalanca();
+        }
+        if (isStuck) Stuck();
     }
     void Dash()
     {
@@ -87,12 +97,34 @@ public class PlayerMovement : MonoBehaviour
             }
         }   
     }
+
+    void TrampaPegamento()
+    {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                inputCounter++;
+            }
+            if(inputCounter == 30)
+            {
+                isStuck = false;
+            }
+    }
+
+    void Stuck()
+    {
+        body.linearVelocity = new Vector2(0,0);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Palanca"))
         {
             puedeActivar = true;
             palancaActual = collision.GetComponent<Palanca>();
+        }
+        if (collision.CompareTag("Pegamento"))
+        {
+            isStuck = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -101,6 +133,11 @@ public class PlayerMovement : MonoBehaviour
         {
             puedeActivar = false;
             palancaActual = null;
+        }
+        if (collision.CompareTag("Pegamento"))
+        {
+            inputCounter = 0;
+            isStuck = false;
         }
     }
 }
