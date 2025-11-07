@@ -9,7 +9,7 @@ public class Puerta : MonoBehaviour
     [SerializeField] Candados candado;
     [SerializeField] Scroll scrollActual;
     [SerializeField] Scroll siguienteScroll;
-    [HideInInspector] public bool locked = false;
+    public bool locked = false;
     [SerializeField] SpriteRenderer activado;
 
     private void Awake()

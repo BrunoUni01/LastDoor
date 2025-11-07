@@ -19,12 +19,14 @@ public class Escombros : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Escombros")) return;
-        escombros += 1;
+        
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (!collision.CompareTag("Escombros")) return;
+        Destroy(collision.gameObject);
         escombros -= 1;
+        
     }
     public bool FinEscombros() 
     {

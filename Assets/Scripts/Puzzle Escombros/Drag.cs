@@ -8,20 +8,20 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private void Update()
     {
         if (!_isActive) return;
-        print("Si funciona la funcion");
+        //print("Si funciona la funcion");
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = worldPosition + _offset;
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        print("aaaaaa");
+        //print("aaaaaa");
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _offset = (Vector2)transform.position - worldPosition;
         _isActive = true;
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        print("bbbbb");
+        //print("bbbbb");
         _isActive = false;
     }
 }
