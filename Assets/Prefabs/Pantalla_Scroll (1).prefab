@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3492012075334256228}
   - component: {fileID: 7932147630103646363}
   - component: {fileID: 7190689686866220679}
+  - component: {fileID: 1999849720940330467}
   m_Layer: 0
   m_Name: Pantalla_Scroll (1)
   m_TagString: Untagged
@@ -127,7 +128,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.49722463, y: 0.6194608}
     oldSize: {x: 1.86, y: 1.72}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -154,6 +155,8 @@ MonoBehaviour:
   playerIn: 1
   mult: 0
   cooldown: 0
+  tiempoBarra: 0
+  sprite: {fileID: 0}
 --- !u!114 &7190689686866220679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +198,7 @@ MonoBehaviour:
     m_TrimEdge: 0.5
     m_FlipX: 0
     m_FlipY: 0
-    m_InitialTrim: 0.5
+    m_InitialTrim: 0
   m_CastingOption: 1
   m_PreviousTrimEdge: 0.5
   m_PreviousEdgeProcessing: 1
@@ -207,3 +210,20 @@ MonoBehaviour:
     - rid: 6416270091678646345
       type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!111 &1999849720940330467
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199593475271181134}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 75d6fb3e83831d24db23aa0eacb12b9a, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0

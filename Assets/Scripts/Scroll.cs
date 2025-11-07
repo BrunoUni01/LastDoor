@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Scroll : MonoBehaviour
@@ -9,6 +10,7 @@ public class Scroll : MonoBehaviour
     //[SerializeField] float hSize;
     BoxCollider2D a;
     Vector3 b;
+
     private ScrollManager manager;
     [SerializeField] Transform camara;
     [SerializeField] float t;
@@ -16,12 +18,23 @@ public class Scroll : MonoBehaviour
     [SerializeField] bool playerIn;
     [SerializeField] float mult;
     [SerializeField] float cooldown;
+    [SerializeField] float tiempoBarra;
     private GameManagerBotones gameOver;
+    [SerializeField] SpriteRenderer sprite;
+    private Color colorInicio;
+    private Color colorMedio;
+    private Color colorMedioFinal;
+    private Color colorFinal;
+    float[] tiempos;
+
+
     //[SerializeField] private AnimationCurve curveSpeed;
 
     public float getFill { get => t / tiempo; }
+
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();    
         gameOver = FindFirstObjectByType<GameManagerBotones>();
         manager = FindFirstObjectByType<ScrollManager>();
         a = GetComponent<BoxCollider2D>();
@@ -38,9 +51,17 @@ public class Scroll : MonoBehaviour
     {
         if (!Ejecutar()) return;
         Ejecucion();
-        
+        GeneracionDeTiempos();
+        //ColorActual();
+
     }
 
+    void GeneracionDeTiempos() 
+    {
+        tiempoBarra = t / tiempo * 100;
+        
+    }
+    
     void Ejecucion() 
     {
         
@@ -54,7 +75,7 @@ public class Scroll : MonoBehaviour
 
         Mathf.Clamp(t, -10, tiempo);
         t += Time.deltaTime * mult;
-        transform.position = new Vector3(transform.position.x, Mathf.Lerp(b.y, camara.position.y, t / tiempo), transform.position.z);
+        transform.position = new Vector3(transform.position.x, Mathf.Lerp(b.y, camara.position.y , t / tiempo/2.2f), transform.position.z);
         Perder();
     }
     public void SetEjecucion(bool res) 
@@ -81,6 +102,71 @@ public class Scroll : MonoBehaviour
         //t += value;
     }
     bool Ejecutar() => playerIn;
+
+    //void ColorActual() 
+    //{
+    //    colorInicio = sprite.color;
+    //    if (tiempoBarra >= 20f)
+    //    {
+    //        StartCoroutine(nameof(FasesScroll));
+    //        if (tiempoBarra < 50f)
+    //        {
+    //            colorInicio.a = 0.1f;
+    //            colorMedio.a = 0.15f;
+    //            colorMedioFinal.a = 0.2f;
+    //            colorFinal.a = 0.25f;
+    //        }
+    //        else if (tiempoBarra >= 50f && tiempoBarra < 75f)
+    //        {
+    //            colorInicio.a = 0.15f;
+    //            colorMedio.a = 0.2f;
+    //            colorMedioFinal.a = 0.25f;
+    //            colorFinal.a = 0.3f;
+    //        }
+    //        else if (tiempoBarra >= 75f && tiempoBarra < 85f)
+    //        {
+    //            colorInicio.a = 0.2f;
+    //            colorMedio.a = 0.25f;
+    //            colorMedioFinal.a = 0.3f;
+    //            colorFinal.a = 0.35f;
+    //        }
+    //        else if (tiempoBarra >= 85f)
+    //        {
+    //            colorInicio.a = 0.4f;
+    //            colorMedio.a = 0.45f;
+    //            colorMedioFinal.a = 0.5f;
+    //            colorFinal.a = 0.55f;
+    //        }
+    //    }
+    //    else 
+    //    {
+    //        StopCoroutine(nameof(FasesScroll));
+    //    }
+    //}
+    //private IEnumerator FasesScroll() 
+    //{
+    //    // 20 -> 70 -> 85 -> 100
+    //    ColorActual();
+    //    if (tiempoBarra < 20f) yield break;
+    //    sprite.color = colorInicio;
+    //    sprite.enabled = true;
+    //    yield return new WaitForSeconds(0.15f);
+    //    sprite.enabled = false;
+    //    yield return new WaitForSeconds(0.4f);
+    //    sprite.color = colorMedio;
+    //    sprite.enabled = true;
+    //    yield return new WaitForSeconds(0.1f);
+    //    sprite.enabled = false;
+    //    yield return new WaitForSeconds(0.2f);
+    //    sprite.color = colorMedioFinal;
+    //    sprite.enabled = true;
+    //    yield return new WaitForSeconds(0.1f);
+    //    sprite.enabled = false;
+    //    yield return new WaitForSeconds(0.25f);
+    //    sprite.color = colorFinal;
+    //    sprite.enabled = true;
+
+    //}
 }
 
         //hSize = a.bounds.size.y;
