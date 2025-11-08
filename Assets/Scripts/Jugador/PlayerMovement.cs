@@ -22,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Comprobaciones")]
     [HideInInspector] public bool inPull;
+
+    [Header("Raycasts")]
+    [SerializeField] private Transform inicioRaycastSuelo;
+    [SerializeField] private float distanciaRayoSuelo;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -71,6 +75,12 @@ public class PlayerMovement : MonoBehaviour
         }
         if (isStuck) Stuck();
     }
+    public bool RayoSuelo(LayerMask current) 
+    {
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)inicioRaycastSuelo.position, Vector2.down, distanciaRayoSuelo, current);
+        return hit.collider;
+
+    }
     public void GameOver() 
     {
         body.linearVelocity = new Vector2 (0, 0);
@@ -118,6 +128,14 @@ public class PlayerMovement : MonoBehaviour
                 isStuck = false;
             }
     }
+    public void ActivarStuck() 
+    {
+        isStuck = true;
+    }
+    public void DesactivarStuck()
+    {
+        isStuck = false;
+    }
 
     void Stuck()
     {
@@ -148,5 +166,9 @@ public class PlayerMovement : MonoBehaviour
             inputCounter = 0;
             isStuck = false;
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Debug.DrawRay(inicioRaycastSuelo.position, Vector3.down * distanciaRayoSuelo, Color.yellow);
     }
 }
