@@ -19,9 +19,13 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove;
     [SerializeField] private int inputCounter = 0;
     private bool isStuck;
+
+    [Header("Comprobaciones")]
+    [HideInInspector] public bool inPull;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        inPull = false;
         canMove = true;
         isStuck = false;
     }

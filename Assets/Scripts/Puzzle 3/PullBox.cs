@@ -7,9 +7,10 @@ public class PullBox : MonoBehaviour
     [SerializeField] private bool dragging, inPlayer;
     private Transform player;
     public float followSpeed = 0.5f;
-    private PlayerMovement jugador;
+    [SerializeField]private PlayerMovement jugador;
     public float maxDistance = 1.2f;
     private Vector2 distance;
+    private Vector2 playerColliderPos;
     private bool a = true;
 
     private void Awake()
@@ -20,7 +21,7 @@ public class PullBox : MonoBehaviour
     }
     private void Start()
     {
-        jugador = FindFirstObjectByType<PlayerMovement>();
+        jugador = FindAnyObjectByType<PlayerMovement>();
         followSpeed = 0.5f;
 
     }
@@ -28,6 +29,7 @@ public class PullBox : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
+        if (jugador.inPull) return;
         player = collision.transform;
         dragging = false;
         inPlayer = true;
@@ -35,12 +37,13 @@ public class PullBox : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
-        if (!dragging)
-        {
+        
+        
+            jugador.inPull = false;
             player = null;
             dragging = false;
             inPlayer = false;
-        }
+        
     }
     
     //private void OnTriggerExit2D(Collider2D collision)
@@ -71,72 +74,97 @@ public class PullBox : MonoBehaviour
     {
         if (player == null) 
         {
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            dragging = false;
-            return;
-        }
-        if (Input.GetKey(KeyCode.R) && inPlayer)
-        {
-            //transform.SetParent(player);
-            dragging = true;
-            Vector2 dir = Direccion();
             rb.bodyType = RigidbodyType2D.Dynamic;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            rb.gravityScale = 0f;
-            //rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            Vector2 targetPos = (Vector2)player.position + dir * distance;
-            rb.MovePosition(targetPos);
-        }
-        else
-        {
-            //print("a");
-            //transform.SetParent(null);
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             dragging = false;
-            //inPlayer = false;
+            inPlayer = false;
+            return;
         }
+        if (Input.GetKey(KeyCode.R))
+        {
+            if (inPlayer)
+            {
+                jugador.inPull = true;
+                //transform.SetParent(player);
+                dragging = true;
+                Vector2 dir = Direccion();
+                if (dir == Vector2.zero)
+                {
+                    inPlayer = false;
+                    return;
+                }
+                rb.bodyType = RigidbodyType2D.Dynamic;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                rb.gravityScale = 0f;
+                //rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                Vector2 targetPos = playerColliderPos + dir * distance;
+                rb.MovePosition(targetPos);
+            }
+            //else
+            //{
+            //    //print("a");
+            //    //transform.SetParent(null);
+            //    rb.bodyType = RigidbodyType2D.Dynamic;
+            //    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            //    dragging = false;
+            //    //inPlayer = false;
+            //}
+        }
+        else if(Input.GetKeyUp(KeyCode.R))
+        {
+            dragging = false;
+        }
+        if (!dragging) 
+        {
+            jugador.inPull = false;
+        }
+        
+        
 
     }
 
-    Vector2 Direccion() 
+    Vector2 Direccion()
     {
-        CapsuleCollider2D playerCol = player.GetComponent<CapsuleCollider2D>();
-        //BoxCollider2D boxCol = GetComponentInParent<BoxCollider2D>();
+        CircleCollider2D playerCol = player.GetComponentInChildren<CircleCollider2D>();
+        if (playerCol == null) return Vector2.zero;
 
-        Vector2 playerSize = Vector2.Scale(playerCol.size, player.lossyScale);
+        
+        float playerRadius = playerCol.radius * player.lossyScale.x;
+
+        
         Vector2 boxSize = Vector2.Scale(box.size, transform.lossyScale);
 
-        Vector2 dir = (transform.position - player.position).normalized;
+        
+        playerColliderPos = (Vector2)playerCol.transform.position + playerCol.offset * player.lossyScale;
+
+        
+        Vector2 dir = ((Vector2)transform.position - playerColliderPos).normalized;
+
         if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
         {
-            distance = (playerSize + boxSize) / 2f + new Vector2(0.05f,0);
+            distance = new Vector2((playerRadius + boxSize.x / 2f) + 0.05f, 0);
             if (dir.x > 0)
             {
-                //distance = 1.1f;
                 return Vector2.right;
             }
             else
             {
-                //distance = 1.1f;
                 return Vector2.left;
             }
         }
-        else 
+        else
         {
-            distance = (playerSize + boxSize) / 2f + new Vector2 (0,0.05f);
+            distance = new Vector2(0, (playerRadius + boxSize.y / 2f) + 0.05f);
             if (dir.y > 0)
             {
-                //distance = 1.6f;
                 return Vector2.up;
             }
-            else 
+            else
             {
-                //distance = 1.6f;
                 return Vector2.down;
             }
         }
     }
-    
+
+
 }

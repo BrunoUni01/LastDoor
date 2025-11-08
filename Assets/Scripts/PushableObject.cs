@@ -27,15 +27,8 @@ public class PushableObject : MonoBehaviour
         //    //rb.MovePosition(Vector2.MoveTowards(rb.position, target.position, Time.deltaTime * speedMultiply));
         //}
     }
-
-    private void OnCollisionStay2D(Collision2D collision)
+    private void FixedUpdate()
     {
-        if (!collision.collider.CompareTag("Player") && collision.gameObject.layer != 8)
-            return;
-
-        onCollision = true;
-        direction = collision.contacts[0].normal;
-
         // Detectar si hay pared o caja al frente
         if (DetectarFrente(direction, out RaycastHit2D hit))
         {
@@ -51,8 +44,19 @@ public class PushableObject : MonoBehaviour
                     return;
             }
         }
-
+        if(onCollision)
         rb.MovePosition(rb.position + direction * speedMultiply * Time.fixedDeltaTime);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!collision.collider.CompareTag("Player") && collision.gameObject.layer != 8)
+            return;
+
+        onCollision = true;
+        direction = collision.contacts[0].normal;
+
+        
     }
 
     private void OnCollisionExit2D(Collision2D collision)

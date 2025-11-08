@@ -187,12 +187,11 @@ GameObject:
   - component: {fileID: 2439669608178809654}
   - component: {fileID: 5613360529301379243}
   - component: {fileID: 7169887571926208591}
-  - component: {fileID: 3815977714871215606}
   - component: {fileID: 7108330699681127727}
   - component: {fileID: 38909691970036442}
-  - component: {fileID: 8491525346694047218}
+  - component: {fileID: 1881656825970725020}
   m_Layer: 8
-  m_Name: Caja_Puzzle3
+  m_Name: Caja_Puzzle3 (2)
   m_TagString: CajaPuzTres
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 8940674976814151553}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.97, y: -2.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -278,14 +277,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8940674976814151553}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 200
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -297,22 +296,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3815977714871215606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8940674976814151553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4db75a3d9f639fe4db62476aa9282fb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMultiply: 1
-  onCollision: 0
-  amplitud: 0.01
-  isPuzzleTres: 1
 --- !u!114 &7108330699681127727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,23 +356,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8491525346694047218
+--- !u!114 &1881656825970725020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8940674976814151553}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8daacd0deef45274488952690392c2cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a7d090dd4de7df48980e35e6778d9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box: {fileID: 38909691970036442}
-  dragging: 0
-  inPlayer: 0
-  followSpeed: 1.5
-  maxDistance: 1.45
+  fuerza: 50
+  desaceleracion: 2
+  velocidadMinima: 0
 --- !u!1 &9158334788115817567
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,4 +466,5 @@ MonoBehaviour:
   dragging: 0
   inPlayer: 0
   followSpeed: 0.5
+  jugador: {fileID: 0}
   maxDistance: 1.2
