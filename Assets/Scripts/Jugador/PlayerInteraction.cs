@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -40,7 +41,14 @@ public class PlayerInteraction : MonoBehaviour
         if (objetoPermanente != null) 
         {
             Vector2 direction = new Vector2(Mathf.Sign(transform.localScale.x), Mathf.Sign(transform.localScale.y));
-            objetoPermanente.transform.position = (Vector2)(transform.position) + (direction * offset);
+
+            CircleCollider2D playerCol = GetComponent<CircleCollider2D>();
+
+            float playerRadius = playerCol.radius * transform.lossyScale.x;
+
+            Vector2 playerColliderPos = (Vector2)playerCol.transform.position + playerCol.offset * transform.lossyScale;
+
+            objetoPermanente.transform.position = playerColliderPos;
         }
         objetoPermanente = objetoSuelo;
         objetoPermanente.gameObject.transform.position = new Vector2(9000, 9000);
@@ -61,7 +69,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (collision.CompareTag("Puzzle 2"))
         {
-            puzzleInteract = true;
+            //puzzleInteract = true;
         }
         if (collision.CompareTag("Llave"))
         {
@@ -77,7 +85,7 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (collision.CompareTag("Puzzle 2"))
         {
-            puzzleInteract = false;
+            //puzzleInteract = false;
         }
         if (collision.CompareTag("Llave"))
         {
