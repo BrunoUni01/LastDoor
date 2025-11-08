@@ -67,6 +67,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if (isStuck) Stuck();
     }
+    public void GameOver() 
+    {
+        body.linearVelocity = new Vector2 (0, 0);
+        enabled = false;
+    }
     void Dash()
     {
         inDash = true;

@@ -20,12 +20,14 @@ public class Scroll : MonoBehaviour
     [SerializeField] float cooldown;
     [SerializeField] float tiempoBarra;
     private GameManagerBotones gameOver;
+    Animator ani;
     [SerializeField] SpriteRenderer sprite;
-    private Color colorInicio;
-    private Color colorMedio;
-    private Color colorMedioFinal;
-    private Color colorFinal;
-    float[] tiempos;
+    private PlayerMovement player;
+    //private Color colorInicio;
+    //private Color colorMedio;
+    //private Color colorMedioFinal;
+    //private Color colorFinal;
+    //float[] tiempos;
 
 
     //[SerializeField] private AnimationCurve curveSpeed;
@@ -34,6 +36,8 @@ public class Scroll : MonoBehaviour
 
     void Start()
     {
+        player = FindAnyObjectByType<PlayerMovement>();
+        ani = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();    
         gameOver = FindFirstObjectByType<GameManagerBotones>();
         manager = FindFirstObjectByType<ScrollManager>();
@@ -52,14 +56,15 @@ public class Scroll : MonoBehaviour
         if (!Ejecutar()) return;
         Ejecucion();
         GeneracionDeTiempos();
+        AnimacionScroll();
         //ColorActual();
 
     }
 
     void GeneracionDeTiempos() 
     {
+        Mathf.Clamp(tiempoBarra, 0, 100);
         tiempoBarra = t / tiempo * 100;
-        
     }
     
     void Ejecucion() 
@@ -70,22 +75,31 @@ public class Scroll : MonoBehaviour
             cooldown -= Time.deltaTime;
             
         }
-        Mathf.Clamp(cooldown, 0, 15);
+        cooldown = Mathf.Clamp(cooldown, 0, 15);
         if (cooldown <= 0) mult = 1;
 
-        Mathf.Clamp(t, -10, tiempo);
+        t = Mathf.Clamp(t, -0, tiempo*2.2f);
         t += Time.deltaTime * mult;
         transform.position = new Vector3(transform.position.x, Mathf.Lerp(b.y, camara.position.y , t / tiempo/2.2f), transform.position.z);
-        Perder();
+        //Perder();
     }
     public void SetEjecucion(bool res) 
     {
         playerIn = res;
+        enabled = false;
     }
-    private void Perder() 
+    public void PrePerder() 
+    {
+        player.GameOver();
+        sprite.enabled = false;
+        t = tiempo * 2.2f;
+    }
+    public void Perder() 
     {
         if (t / tiempo >= 1) 
         {
+            t = tiempo * 2.2f;
+            ani.SetTrigger("Stop");
             gameOver.SceneName(3);
         }
     }
@@ -103,6 +117,27 @@ public class Scroll : MonoBehaviour
     }
     bool Ejecutar() => playerIn;
 
+    void AnimacionScroll() 
+    {
+        if (tiempoBarra < 20f)
+        {
+            sprite.enabled = false;
+            ani.enabled = false;
+            return;
+        }
+        if (tiempoBarra >= 75)
+        {
+            ani.enabled = true;
+            ani.SetTrigger("Inicio");
+        }
+        if (tiempoBarra >= 100) 
+        {
+            ani.SetTrigger("Fin");
+            return;
+        }
+        return;
+    }
+    
     //void ColorActual() 
     //{
     //    colorInicio = sprite.color;
