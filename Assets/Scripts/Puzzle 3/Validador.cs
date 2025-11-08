@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Validador : MonoBehaviour
 {
     [SerializeField] private Placa placa;
     public bool validacion;
     public bool atraer;
+    private Light2D luz;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -13,7 +15,7 @@ public class Validador : MonoBehaviour
     }
     void Start()
     {
-        
+        luz = GetComponentInChildren<Light2D>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class Validador : MonoBehaviour
         {
             //collision.gameObject.GetComponent<PushableObject>().Validador(transform);
             atraer = false;
+            luz.enabled = true;
         }
 
     }
@@ -45,6 +48,7 @@ public class Validador : MonoBehaviour
             //collision.gameObject.GetComponent<PushableObject>().target = null;
             validacion = false;
             atraer = true;
+            luz.enabled = false;
         }
     }
 }
