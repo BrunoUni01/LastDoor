@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (puedeActivar) 
         {
-            if (Input.GetKeyDown(KeyCode.G)) 
+            if (Input.GetKeyDown(KeyCode.E)) 
             {
                 Debug.Log("Esta intenando activar!");
                 palancaActual.Activado = true;

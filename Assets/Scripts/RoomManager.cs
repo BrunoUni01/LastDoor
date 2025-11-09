@@ -7,6 +7,7 @@ public class RoomManager : MonoBehaviour
 
     //ref
     public CamaraController cameraController;
+    private RoomFade fade;
     private Cuarto cuartoActual;
     private Score jugador;
     private HUD_barra hud_Barra;
@@ -18,6 +19,7 @@ public class RoomManager : MonoBehaviour
         else Destroy(gameObject);
         jugador = FindFirstObjectByType<Score>();
         hud_Barra = FindFirstObjectByType<HUD_barra>();
+        fade = FindAnyObjectByType<RoomFade>();
     }
 
     public void EntrarCuarto(Cuarto nuevoCuarto, Vector3 spawnJugador, Scroll a)
@@ -32,6 +34,10 @@ public class RoomManager : MonoBehaviour
         isTransitioning = true;
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //fade.IniciaFadeOut();
+        fade.FadeOut();
+        hud_Barra.getScroll().SetEjecucion(false); // cancela la ejecucion del scroll actual para evitar que el player se muera
+        yield return new WaitUntil(fade.getFadeout()); // espera a que el fade termine de realizarse ( false -> true)
 
         Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
         if (rb != null) rb.linearVelocity = Vector2.zero;
@@ -48,6 +54,7 @@ public class RoomManager : MonoBehaviour
         }
         if(hud_Barra != null)
         hud_Barra.ChangeScroll(actual);
+        hud_Barra.getScroll().SetEjecucion(false);
 
 
         player.transform.position = spawnJugador;
@@ -59,7 +66,9 @@ public class RoomManager : MonoBehaviour
 
         Puerta[] puertas = cuartoActual.GetComponentsInChildren<Puerta>(true);
         foreach (var p in puertas) p.Unlock();
-
+        fade.Fadein();// como ya paso de habitación empieza a aclararse
+        yield return new WaitUntil(fade.getFadein());// espera a que fadeIn termine de hacer su ejecución
+        hud_Barra.getScroll().SetEjecucion(true); // lo activa nuevamente por si acaso
         isTransitioning = false;
     }
 }

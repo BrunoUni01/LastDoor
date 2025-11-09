@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class RoomFade : MonoBehaviour
@@ -5,13 +6,16 @@ public class RoomFade : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private float delayPerSecond = 3f;
     private bool fadeIn;
+    private bool iniciaFadeIn;
     private bool fadeOut;
+    private bool iniciaFadeOut;
 
 
 
     private void Awake()
     {
-
+        iniciaFadeIn = true;
+        iniciaFadeOut = false;
     }
     private void Start()
     {
@@ -27,15 +31,31 @@ public class RoomFade : MonoBehaviour
     public void FadeOut() 
     {
         if (fadeIn) return;
-        fadeOut = false;
+        fadeOut = true;
+    }
+    //public void IniciaFadeIn() 
+    //{
+    //    iniciaFadeIn = true;
+    //}
+    //public void IniciaFadeOut()
+    //{
+    //    iniciaFadeOut = true;
+    //}
+    public System.Func<bool> getFadeout() 
+    {
+        return () => !fadeOut;
+    }
+    public System.Func<bool> getFadein()
+    {
+        return () => !fadeIn;
     }
     private void Update()
     {
         if (fadeIn)
         {
             canvasGroup.alpha -= Time.deltaTime / delayPerSecond;
-            canvasGroup.alpha = Mathf.Clamp(canvasGroup.alpha, 0f, 1f); 
-            if (canvasGroup.alpha < 0)
+            canvasGroup.alpha = Mathf.Clamp(canvasGroup.alpha, 0f, 1f);
+            if (canvasGroup.alpha <= 0)
             {
                 canvasGroup.alpha = 0;
                 fadeIn = false;
@@ -51,6 +71,7 @@ public class RoomFade : MonoBehaviour
                 canvasGroup.alpha = 1;
                 fadeOut = false;
             }
+            
         }
     }
 }

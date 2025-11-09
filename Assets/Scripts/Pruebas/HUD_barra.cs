@@ -27,4 +27,8 @@ public class HUD_barra : MonoBehaviour
     {
         this.current = current;
     }
+    public Scroll getScroll() 
+    {
+        return current;
+    }
 }

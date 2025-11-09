@@ -86,7 +86,7 @@ public class Scroll : MonoBehaviour
     public void SetEjecucion(bool res) 
     {
         playerIn = res;
-        enabled = false;
+        //enabled = false;
     }
     public void PrePerder() 
     {
