@@ -17,22 +17,22 @@ public class TrampaDeOso : MonoBehaviour
         cooldown = 0.10f;
     }
 
-    IEnumerator ejecucion()
-    {
-        InicioTrampa();
-        yield return new WaitForSeconds(3f);
-        FinTrampa();
-    }
-    void InicioTrampa() 
-    {
-        player.ActivarStuck();
-    }
-    void FinTrampa() 
-    {
-        player.DesactivarStuck();
-        finTrampa = true;
+    //IEnumerator ejecucion()
+    //{
+    //    InicioTrampa();
+    //    yield return new WaitForSeconds(3f);
+    //    FinTrampa();
+    //}
+    //void InicioTrampa() 
+    //{
+    //    player.ActivarStuck();
+    //}
+    //void FinTrampa() 
+    //{
+    //    player.DesactivarStuck();
+    //    finTrampa = true;
 
-    }
+    //}
     void ValidacionPlayer() 
     {
         if (finTrampa)
@@ -63,7 +63,8 @@ public class TrampaDeOso : MonoBehaviour
             cooldown = Mathf.Clamp(cooldown, 0f, 1f);
             if (cooldown <= 0) 
             {
-                StartCoroutine(nameof(ejecucion));
+                TrampaStuckManager.instancia.ActivarTrampaPorDuracion(player, 2f);
+                finTrampa=true;
             }
         }
         else 
