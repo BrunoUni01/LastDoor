@@ -4,10 +4,12 @@ public class LibroManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] GameObject libro;
-    [SerializeField] GameObject PantallaCinematica;
-    [SerializeField] GameObject PantallaPuzzles;
-    [SerializeField] GameObject PantallaTrampas;
-    [SerializeField] GameObject PantallaObjetos;
+    [Header("Pantallas del libro")]
+    [SerializeField] GameObject[] PantallaCinematica;
+    [SerializeField] GameObject[] PantallaPuzzles;
+    [SerializeField] GameObject[] PantallaTrampas;
+    [SerializeField] GameObject[] PantallaObjetos;
+    [Header("Paginas por pantalla")]
     [SerializeField] GameObject[] pagCinematica;
     [SerializeField] GameObject[] pagPuzzles;
     [SerializeField] GameObject[] pagTrampas;
@@ -30,25 +32,29 @@ public class LibroManager : MonoBehaviour
     }
     public void EntrarPantallaCinematica() 
     {
-        PantallaCinematica.SetActive(!PantallaCinematica.activeSelf);
+        PantallaCinematica[0].SetActive(!PantallaCinematica[0].activeSelf);
+        PantallaCinematica[1].SetActive(!PantallaCinematica[1].activeSelf);
     }
     public void EntrarPantallaPuzzles()
     {
-        PantallaPuzzles.SetActive(!PantallaPuzzles.activeSelf);
+        PantallaPuzzles[0].SetActive(!PantallaPuzzles[0].activeSelf);
+        PantallaPuzzles[1].SetActive(!PantallaPuzzles[1].activeSelf);
     }
     public void EntrarPantallaTrampas()
     {
-        PantallaTrampas.SetActive(!PantallaTrampas.activeSelf);
+        PantallaTrampas[0].SetActive(!PantallaTrampas[0].activeSelf);
+        PantallaTrampas[1].SetActive(!PantallaTrampas[1].activeSelf);
     }
     public void EntrarPantallaObjetos()
     {
-        PantallaObjetos.SetActive(!PantallaObjetos.activeSelf);
+        PantallaObjetos[0].SetActive(!PantallaObjetos[0].activeSelf);
+        PantallaObjetos[1].SetActive(!PantallaObjetos[1].activeSelf);
     }
     public void PasarDePagina(int cambio) 
     {
         if (cambio == -1)
         {
-            if (PantallaCinematica.activeSelf)
+            if (PantallaCinematica[0].activeSelf)
             {
                 pagCinematica[pagCine].SetActive(false);
                 pagCinematica[pagCine + 1].SetActive(false);
@@ -57,7 +63,7 @@ public class LibroManager : MonoBehaviour
                 pagCinematica[pagCine].SetActive(true);
                 pagCinematica[pagCine + 1].SetActive(true);
             }
-            else if (PantallaPuzzles.activeSelf)
+            else if (PantallaPuzzles[0].activeSelf)
             {
                 pagPuzzles[pagCine].SetActive(false);
                 pagPuzzles[pagCine + 1].SetActive(false);
@@ -66,7 +72,7 @@ public class LibroManager : MonoBehaviour
                 pagPuzzles[pagCine].SetActive(true);
                 pagPuzzles[pagCine + 1].SetActive(true);
             }
-            else if (PantallaTrampas.activeSelf)
+            else if (PantallaTrampas[0].activeSelf)
             {
                 pagTrampas[pagCine].SetActive(false);
                 pagTrampas[pagCine + 1].SetActive(false);
@@ -75,7 +81,7 @@ public class LibroManager : MonoBehaviour
                 pagTrampas[pagCine].SetActive(true);
                 pagTrampas[pagCine + 1].SetActive(true);
             }
-            else if (PantallaObjetos.activeSelf)
+            else if (PantallaObjetos[0].activeSelf)
             {
                 pagObjetos[pagCine].SetActive(false);
                 pagObjetos[pagCine + 1].SetActive(false);
@@ -87,7 +93,7 @@ public class LibroManager : MonoBehaviour
         }
         else if(cambio == 1)
         {
-            if (PantallaCinematica.activeSelf)
+            if (PantallaCinematica[0].activeSelf)
             {
                 pagCinematica[pagCine].SetActive(false);
                 pagCinematica[pagCine + 1].SetActive(false);
@@ -96,7 +102,7 @@ public class LibroManager : MonoBehaviour
                 pagCinematica[pagCine].SetActive(true);
                 pagCinematica[pagCine + 1].SetActive(true);
             }
-            else if (PantallaPuzzles.activeSelf)
+            else if (PantallaPuzzles[0].activeSelf)
             {
                 pagPuzzles[pagCine].SetActive(false);
                 pagPuzzles[pagCine + 1].SetActive(false);
@@ -105,7 +111,7 @@ public class LibroManager : MonoBehaviour
                 pagPuzzles[pagCine].SetActive(true);
                 pagPuzzles[pagCine + 1].SetActive(true);
             }
-            else if (PantallaTrampas.activeSelf)
+            else if (PantallaTrampas[0].activeSelf)
             {
                 pagTrampas[pagCine].SetActive(false);
                 pagTrampas[pagCine + 1].SetActive(false);
@@ -114,7 +120,7 @@ public class LibroManager : MonoBehaviour
                 pagTrampas[pagCine].SetActive(true);
                 pagTrampas[pagCine + 1].SetActive(true);
             }
-            else if (PantallaObjetos.activeSelf)
+            else if (PantallaObjetos[0].activeSelf)
             {
                 pagObjetos[pagCine].SetActive(false);
                 pagObjetos[pagCine + 1].SetActive(false);
