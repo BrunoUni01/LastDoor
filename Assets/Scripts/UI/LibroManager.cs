@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LibroManager : MonoBehaviour
@@ -14,11 +15,14 @@ public class LibroManager : MonoBehaviour
     [SerializeField] GameObject[] pagPuzzles;
     [SerializeField] GameObject[] pagTrampas;
     [SerializeField] GameObject[] pagObjetos;
+    [SerializeField] GameObject[] TextosLibro;
     [SerializeField] private int pagCine;
     [SerializeField] private int pagPuzle;
     [SerializeField] private int pagTramp;
     [SerializeField] private int pagObj;
 
+    [Header("Icono de nuevo descubrimiento")]
+    [SerializeField] GameObject iconoDescubrimiento;
     private void Awake()
     {
         pagCine = 0;
@@ -29,6 +33,68 @@ public class LibroManager : MonoBehaviour
     public void EntrarLibro()
     {
         libro.SetActive(!libro.activeSelf);
+    }
+    public void DesbloquearEntrada(string id)
+    {
+        Debug.Log("Desbloqueando entrada en el libro: " + id);
+
+        // Ejemplo de cómo podrías manejar distintos tipos
+        switch (id)
+        {
+            case "Trampa_Oso":
+                // Hacemos visible el texto o imagen de la trampa de oso
+                // Supongamos que la página está en pagTrampas[0]
+                if (TextosLibro.Length > 0)
+                    TextosLibro[0].SetActive(true);
+                break;
+            case "Trampa_Jaula":
+                if (TextosLibro.Length > 1)
+                    TextosLibro[1].SetActive(true);
+                break;
+            case "Trampa_ahora":
+                if (TextosLibro.Length > 1)
+                    TextosLibro[1].SetActive(true);
+                break;
+
+                // Puedes seguir agregando más casos:
+                // case "Puzzle_Rocas": pagPuzzles[2].SetActive(true); break;
+        }
+
+        // Mostrar icono brillante en pantalla
+        if (iconoDescubrimiento != null)
+            StartCoroutine(MostrarIconoTemporal());
+    }
+    public void ActualizarDescubiertos(string id) 
+    {
+        switch (id)
+        {
+            case "Trampa_Oso":
+                // Hacemos visible el texto o imagen de la trampa de oso
+                // Supongamos que la página está en pagTrampas[0]
+                if (pagTrampas.Length > 0)
+                    pagTrampas[0].SetActive(true);
+                break;
+
+            case "Trampa_Jaula":
+                if (pagTrampas.Length > 1)
+                    pagTrampas[1].SetActive(true);
+                break;
+
+            case "Puzzle_Escombros":
+                if (pagTrampas.Length > 2)
+                    pagTrampas[2].SetActive(true);
+                break;
+
+                // Puedes seguir agregando más casos:
+                // case "Puzzle_Rocas": pagPuzzles[2].SetActive(true); break;
+        }
+
+    }
+    private IEnumerator MostrarIconoTemporal()
+    {
+        iconoDescubrimiento.SetActive(true);
+        yield return new WaitForSeconds(7f); // 3 segundos visible
+        iconoDescubrimiento.SetActive(false);
     }
     public void EntrarPantallaCinematica() 
     {

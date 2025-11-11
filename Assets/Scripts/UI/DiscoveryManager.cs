@@ -4,12 +4,13 @@ using UnityEngine;
 public class DiscoveryManager : MonoBehaviour
 {
     private List<string> discoveredList = new List<string>();
+    [SerializeField] LibroManager libroManager;
 
     void Awake()
     {
         // Registrar este manager en el EventManager
         EventManager.discoveryManager = this;
-
+        ResetProgress();
         LoadProgress();
     }
 
@@ -21,6 +22,10 @@ public class DiscoveryManager : MonoBehaviour
             discoveredList.Add(id);
             Debug.Log("Nuevo descubrimiento: " + id);
             SaveProgress();
+            if (libroManager != null) 
+            {
+                libroManager.DesbloquearEntrada(id);
+            }
         }
     }
 
@@ -37,6 +42,14 @@ public class DiscoveryManager : MonoBehaviour
         if (!string.IsNullOrEmpty(data))
         {
             discoveredList = new List<string>(data.Split(','));
+        }
+
+        if (libroManager != null)
+        {
+            foreach (string id in discoveredList)
+            {
+                libroManager.ActualizarDescubiertos(id);
+            }
         }
     }
 

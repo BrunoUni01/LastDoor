@@ -7,6 +7,7 @@ public class TrampaDeOso : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private PlayerMovement player;
     [SerializeField] private bool inPlayer;
+    [SerializeField] private bool inTrap;
     [SerializeField] private bool finTrampa;
     [SerializeField] private float cooldown;
     [SerializeField] private LayerMask capaTrampaStuck;
@@ -40,21 +41,26 @@ public class TrampaDeOso : MonoBehaviour
             inPlayer = false;
             return;
         }
-        if (player.RayoSuelo(capaTrampaStuck))
+        if (player.RayoSuelo(capaTrampaStuck) && inTrap)
         {
             inPlayer = true;
-            EventManager.ReportDiscovery("TrampaDeOso");
+            EventManager.ReportDiscovery("Trampa_Oso");
         }
         else 
         {
             inPlayer= false;
         }
     }
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (!collision.CompareTag("Player")) return;
-    //    inPlayer = true;
-    //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       if (!collision.CompareTag("Player")) return;
+       inTrap = true;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player")) return;
+        inTrap = false;
+    }
     private void Update()
     {
         ValidacionPlayer();

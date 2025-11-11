@@ -6,6 +6,7 @@ public class TrampaJaula : MonoBehaviour
     [SerializeField] private bool inPlayer;
     [SerializeField] private bool finTrampa;
     [SerializeField] private bool condicion;
+    [SerializeField] private bool inTrap;
     [SerializeField] private int contador;
     [SerializeField] private LayerMask capaTrampaStuck;
     private KeyCode[] teclasValidas;
@@ -30,14 +31,25 @@ public class TrampaJaula : MonoBehaviour
             inPlayer = false;
             return;
         }
-        if (player.RayoSuelo(capaTrampaStuck))
+        if (player.RayoSuelo(capaTrampaStuck) && inTrap)
         {
+            EventManager.ReportDiscovery("Trampa_Jaula");
             inPlayer = true;
         }
         else
         {
             inPlayer = false;
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player")) return;
+        inTrap = true;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player")) return;
+        inTrap = false;
     }
     // Update is called once per frame
     void Update()

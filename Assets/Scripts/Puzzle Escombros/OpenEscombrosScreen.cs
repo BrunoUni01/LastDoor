@@ -24,6 +24,7 @@ public class OpenEscombrosScreen : MonoBehaviour
         {
             print("si entroooo");
             EnterPuzzle();
+            EventManager.ReportDiscovery("Puzzle_Escombros");
         }
         else if (puzzleTutorial.FinEscombros())
         {
