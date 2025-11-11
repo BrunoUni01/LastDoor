@@ -43,6 +43,7 @@ public class TrampaDeOso : MonoBehaviour
         if (player.RayoSuelo(capaTrampaStuck))
         {
             inPlayer = true;
+            EventManager.ReportDiscovery("TrampaDeOso");
         }
         else 
         {
