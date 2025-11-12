@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        anim = GetComponent<Animator>();
         inPull = false;
         canMove = true;
         isStuck = false;
@@ -100,11 +101,11 @@ public class PlayerMovement : MonoBehaviour
         if(inputX > 0)
         anim.SetTrigger("caminaDer");
 
-        if (inputX == 0 && lastDirection > 0)
+        if (inputX == 0 && lastDirection < 0)
         {
             anim.SetTrigger("IddleIzq");
         }
-        else if (inputX == 0 && lastDirection < 0) 
+        else if (inputX == 0 && lastDirection > 0) 
         {
             anim.SetTrigger("IddleDer");
         }
