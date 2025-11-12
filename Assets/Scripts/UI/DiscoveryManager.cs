@@ -48,6 +48,7 @@ public class DiscoveryManager : MonoBehaviour
         {
             foreach (string id in discoveredList)
             {
+                print(id);
                 libroManager.ActualizarDescubiertos(id);
             }
         }

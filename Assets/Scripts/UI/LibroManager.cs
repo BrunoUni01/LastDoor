@@ -72,17 +72,17 @@ public class LibroManager : MonoBehaviour
                 // Hacemos visible el texto o imagen de la trampa de oso
                 // Supongamos que la página está en pagTrampas[0]
                 if (pagTrampas.Length > 0)
-                    pagTrampas[0].SetActive(true);
+                    TextosLibro[0].SetActive(true);
                 break;
 
             case "Trampa_Jaula":
                 if (pagTrampas.Length > 1)
-                    pagTrampas[1].SetActive(true);
+                    TextosLibro[1].SetActive(true);
                 break;
 
             case "Puzzle_Escombros":
                 if (pagTrampas.Length > 2)
-                    pagTrampas[2].SetActive(true);
+                    TextosLibro[2].SetActive(true);
                 break;
 
                 // Puedes seguir agregando más casos:
