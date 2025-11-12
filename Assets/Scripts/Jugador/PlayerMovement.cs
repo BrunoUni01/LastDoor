@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movimiento Lineal")]
     [SerializeField] public float currentSpeed;
     [SerializeField] private Palanca palancaActual;
+    private float inputX, inputY, lastDirection;
     private bool puedeActivar;
     public bool canMove;
     [SerializeField] private int inputCounter = 0;
@@ -26,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Raycasts")]
     [SerializeField] private Transform inicioRaycastSuelo;
     [SerializeField] private float distanciaRayoSuelo;
+
+    [Header("Animaciones")]
+    [SerializeField] private Animator anim;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -66,14 +70,44 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canMove && !isStuck)
         {
-            float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");
+            movimiento();
 
-            Vector2 movimiento = new Vector2(x, y);
-            body.linearVelocity = movimiento.normalized * currentSpeed;
+            //inputX = Input.GetAxisRaw("Horizontal");
+            //inputY = Input.GetAxisRaw("Vertical");
+
+            //if (inputX != 0)
+            //    lastDirection = inputX;
+            
+            //Vector2 movimiento = new Vector2(inputX, inputY);
+            //body.linearVelocity = movimiento.normalized * currentSpeed;
             //ActivarPalanca();
         }
         if (isStuck) Stuck();
+    }
+    private void movimiento() 
+    {
+        inputX = Input.GetAxisRaw("Horizontal");
+        inputY = Input.GetAxisRaw("Vertical");
+
+        if (inputX != 0)
+            lastDirection = inputX;
+
+        Vector2 movimiento = new Vector2(inputX, inputY);
+        body.linearVelocity = movimiento.normalized * currentSpeed;
+
+        if (inputX < 0)
+        anim.SetTrigger("caminaIzq");
+        if(inputX > 0)
+        anim.SetTrigger("caminaDer");
+
+        if (inputX == 0 && lastDirection > 0)
+        {
+            anim.SetTrigger("IddleIzq");
+        }
+        else if (inputX == 0 && lastDirection < 0) 
+        {
+            anim.SetTrigger("IddleDer");
+        }
     }
     public bool RayoSuelo(LayerMask current) 
     {

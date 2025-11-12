@@ -1,0 +1,936 @@
+fileFormatVersion: 2
+guid: 054b09b3d4d1e08449466e31c6dc1fbd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7471676915368959167
+    second: Alyssa Sprites_0
+  - first:
+      213: -3394116561940727913
+    second: Alyssa Sprites_1
+  - first:
+      213: 5955063875453350475
+    second: Alyssa Sprites_2
+  - first:
+      213: 7957982776776303912
+    second: Alyssa Sprites_3
+  - first:
+      213: 889816295434085815
+    second: Alyssa Sprites_4
+  - first:
+      213: -5185005195176998766
+    second: Alyssa Sprites_5
+  - first:
+      213: 6989037879689905252
+    second: Alyssa Sprites_6
+  - first:
+      213: -6926877233203794648
+    second: Alyssa Sprites_7
+  - first:
+      213: -2063682112747935704
+    second: Alyssa Sprites_8
+  - first:
+      213: -2397016151656196717
+    second: Alyssa Sprites_9
+  - first:
+      213: -7547294229370735801
+    second: Alyssa Sprites_10
+  - first:
+      213: 7800192252482555758
+    second: Alyssa Sprites_11
+  - first:
+      213: 2277864350062981225
+    second: Alyssa Sprites_12
+  - first:
+      213: 6372241304893560003
+    second: Alyssa Sprites_13
+  - first:
+      213: 3076682777578298296
+    second: Alyssa Sprites_14
+  - first:
+      213: 398458052124425759
+    second: Alyssa Sprites_15
+  - first:
+      213: 13303744156045975
+    second: Alyssa Sprites_16
+  - first:
+      213: -1935009762129521082
+    second: Alyssa Sprites_17
+  - first:
+      213: -1197653871670280599
+    second: Alyssa Sprites_18
+  - first:
+      213: 6799217935344023228
+    second: Alyssa Sprites_19
+  - first:
+      213: 4181582852781232744
+    second: Alyssa Sprites_20
+  - first:
+      213: 7349307241497102143
+    second: Alyssa Sprites_21
+  - first:
+      213: 1830311024332429496
+    second: Alyssa Sprites_22
+  - first:
+      213: 8503238889694199626
+    second: Alyssa Sprites_23
+  - first:
+      213: 2842905431134035611
+    second: Alyssa Sprites_24
+  - first:
+      213: 3031008949915036237
+    second: Alyssa Sprites_25
+  - first:
+      213: -7476899545628741230
+    second: Alyssa Sprites_26
+  - first:
+      213: 5491175511550862524
+    second: Alyssa Sprites_27
+  - first:
+      213: -6593989365214605599
+    second: Alyssa Sprites_28
+  - first:
+      213: -7368545033001528852
+    second: Alyssa Sprites_29
+  - first:
+      213: -2536191087635627791
+    second: Alyssa Sprites_30
+  - first:
+      213: -1750144265001675484
+    second: Alyssa Sprites_31
+  - first:
+      213: 7808513807619007933
+    second: Alyssa Sprites_32
+  - first:
+      213: 866721300553518817
+    second: Alyssa Sprites_33
+  - first:
+      213: -8036266828145846745
+    second: Alyssa Sprites_34
+  - first:
+      213: -3266463767562773320
+    second: Alyssa Sprites_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Alyssa Sprites_00
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 159
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14362fe9e654f4890800000000000000
+      internalID: -7471676915368959167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_04
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 128
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 797b04f38fca5e0d0800000000000000
+      internalID: -3394116561940727913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_01
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 160
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b42782f1b03a4a250800000000000000
+      internalID: 5955063875453350475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_02
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 160
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 825ad6a1c2f607e60800000000000000
+      internalID: 7957982776776303912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_06
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 128
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5e3bcc433495c00800000000000000
+      internalID: 889816295434085815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_03
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 160
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2988bee0f392b08b0800000000000000
+      internalID: -5185005195176998766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_07
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 128
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4648aac0cec0ef060800000000000000
+      internalID: 6989037879689905252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_05
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 128
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82da5284bd9cedf90800000000000000
+      internalID: -6926877233203794648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_09
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 96
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 828e4546d045c53e0800000000000000
+      internalID: -2063682112747935704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_010
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 96
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39598af82861cbed0800000000000000
+      internalID: -2397016151656196717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_011
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 96
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743700bb2ef924790800000000000000
+      internalID: -7547294229370735801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_012
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 96
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6f0af4c689df3c60800000000000000
+      internalID: 7800192252482555758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_018
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 32
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bbdd1c6fa292ba20800000000000000
+      internalID: 3076682777578298296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_014
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 64
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6465b5b9fd67525e0800000000000000
+      internalID: -1935009762129521082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_019
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 32
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96eb83f2624116fe0800000000000000
+      internalID: -1197653871670280599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_015
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 64
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb635aa30bcab5e50800000000000000
+      internalID: 6799217935344023228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_020
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 32
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 862d3ea1377f70a30800000000000000
+      internalID: 4181582852781232744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_016
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 64
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3704a27ffbfdf560800000000000000
+      internalID: 7349307241497102143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_021
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 32
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b8d0d1ed22966910800000000000000
+      internalID: 1830311024332429496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_017
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 64
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4f7284d7b2910670800000000000000
+      internalID: 8503238889694199626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_022
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 32
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9ed5c06d67047720800000000000000
+      internalID: 2842905431134035611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_023
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 32
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4a27bab49e401a20800000000000000
+      internalID: 3031008949915036237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_024
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 291f4814a77bc3890800000000000000
+      internalID: -7476899545628741230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_025
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce1997c255badb990800000000000000
+      internalID: -7368545033001528852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_026
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db52ddecfe96d5c60800000000000000
+      internalID: 7808513807619007933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_027
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eec1c64e66370c00800000000000000
+      internalID: 866721300553518817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_028
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 0
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7269c14d5e1797090800000000000000
+      internalID: -8036266828145846745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_029
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 0
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bc9cb682803ba2d0800000000000000
+      internalID: -3266463767562773320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_08
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 96
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 271f85f8125c68443889c0b7ae13ce5e
+      internalID: 1201264662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alyssa Sprites_013
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 64
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97cb59836bd783640a397f594269ef60
+      internalID: 959033167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2661aec7401dbe44986a3efedf844f0a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Alyssa Sprites_00: -7471676915368959167
+      Alyssa Sprites_01: 5955063875453350475
+      Alyssa Sprites_010: -2397016151656196717
+      Alyssa Sprites_011: -7547294229370735801
+      Alyssa Sprites_012: 7800192252482555758
+      Alyssa Sprites_013: 959033167
+      Alyssa Sprites_014: -1935009762129521082
+      Alyssa Sprites_015: 6799217935344023228
+      Alyssa Sprites_016: 7349307241497102143
+      Alyssa Sprites_017: 8503238889694199626
+      Alyssa Sprites_018: 3076682777578298296
+      Alyssa Sprites_019: -1197653871670280599
+      Alyssa Sprites_02: 7957982776776303912
+      Alyssa Sprites_020: 4181582852781232744
+      Alyssa Sprites_021: 1830311024332429496
+      Alyssa Sprites_022: 2842905431134035611
+      Alyssa Sprites_023: 3031008949915036237
+      Alyssa Sprites_024: -7476899545628741230
+      Alyssa Sprites_025: -7368545033001528852
+      Alyssa Sprites_026: 7808513807619007933
+      Alyssa Sprites_027: 866721300553518817
+      Alyssa Sprites_028: -8036266828145846745
+      Alyssa Sprites_029: -3266463767562773320
+      Alyssa Sprites_03: -5185005195176998766
+      Alyssa Sprites_04: -3394116561940727913
+      Alyssa Sprites_05: -6926877233203794648
+      Alyssa Sprites_06: 889816295434085815
+      Alyssa Sprites_07: 6989037879689905252
+      Alyssa Sprites_08: 1201264662
+      Alyssa Sprites_09: -2063682112747935704
+      Alyssa Sprites_12: 2277864350062981225
+      Alyssa Sprites_13: 6372241304893560003
+      Alyssa Sprites_15: 398458052124425759
+      Alyssa Sprites_16: 13303744156045975
+      Alyssa Sprites_27: 5491175511550862524
+      Alyssa Sprites_28: -6593989365214605599
+      Alyssa Sprites_30: -2536191087635627791
+      Alyssa Sprites_31: -1750144265001675484
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
