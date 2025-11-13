@@ -51,9 +51,25 @@ public class LibroManager : MonoBehaviour
                 if (TextosLibro.Length > 1)
                     TextosLibro[1].SetActive(true);
                 break;
-            case "Trampa_ahora":
-                if (TextosLibro.Length > 1)
-                    TextosLibro[1].SetActive(true);
+            case "Puzzle_Escombros":
+                if (TextosLibro.Length > 2)
+                    TextosLibro[2].SetActive(true);
+                break;
+            case "Puzzle_Palancas":
+                if (TextosLibro.Length > 3)
+                    TextosLibro[3].SetActive(true);
+                break;
+            case "Puzzle_Espejo":
+                if (TextosLibro.Length > 4)
+                    TextosLibro[4].SetActive(true);
+                break;
+            case "Puzzle_Cajas":
+                if (TextosLibro.Length > 5)
+                    TextosLibro[5].SetActive(true);
+                break;
+            case "Puzzle_Llaves":
+                if (TextosLibro.Length > 6)
+                    TextosLibro[6].SetActive(true);
                 break;
 
                 // Puedes seguir agregando más casos:

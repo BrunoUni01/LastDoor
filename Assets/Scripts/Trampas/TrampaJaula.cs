@@ -58,8 +58,9 @@ public class TrampaJaula : MonoBehaviour
         if (inPlayer) 
         {
             TrampaStuckManager.instancia.ActivarTrampaPorCondicion(player, () => condicion);
+            player.transform.position = transform.position;
 
-            if (Input.GetKeyDown(teclasValidas[random]))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 contador++;
             }

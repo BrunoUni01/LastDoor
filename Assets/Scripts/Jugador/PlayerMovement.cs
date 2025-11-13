@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     [Header("Dash")]
     [SerializeField] private float dashForce;
-    [SerializeField] private bool inDash;
-    [HideInInspector] public bool inTouchable;
+    [SerializeField] private bool inDash, startDash;
+     public bool inTouchable;
     [SerializeField] private float dashDistance;
     [SerializeField] private float normalSpeed;
     [SerializeField] private float cooldown;
@@ -15,11 +15,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movimiento Lineal")]
     [SerializeField] public float currentSpeed;
     [SerializeField] private Palanca palancaActual;
-    private float inputX, inputY, lastDirection, lastDirectionY;
+    private float inputX, inputY, lastDirectionX, lastDirectionY;
     private bool puedeActivar;
     public bool canMove;
     [SerializeField] private int inputCounter = 0;
-    private bool isStuck;
+    [SerializeField] private bool isStuck;
 
     [Header("Comprobaciones")]
     [HideInInspector] public bool inPull;
@@ -85,12 +85,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (inputX != 0)
-            lastDirection = inputX;
-        else if (inputY != 0)
+            lastDirectionX = inputX;
+        if (inputY != 0)
         {
-            if (lastDirection != 0)
-                lastDirectionY = lastDirection;
-            else lastDirectionY = inputY;
+            
+            lastDirectionY = inputY;
         }
         //else lastDirectionY = 0;
 
@@ -119,13 +118,20 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-            if (inputX == 0 && inputY == 0 && lastDirection < 0)
+            //if (inputX == 0 && inputY == 0 && lastDirectionX < 0)
+            //{
+            //    anim.SetTrigger("IddleIzq");
+            //}
+            //else if (inputX == 0 && inputY == 0 && lastDirectionX > 0)
+            //{
+            //    anim.SetTrigger("IddleDer");
+            //}
+            if (inputX == 0 && inputY == 0)
             {
-                anim.SetTrigger("IddleIzq");
-            }
-            else if (inputX == 0 && inputY == 0 && lastDirection > 0)
-            {
-                anim.SetTrigger("IddleDer");
+                if (lastDirectionX < 0)
+                    anim.SetTrigger("IddleIzq");
+                else if (lastDirectionX > 0)
+                    anim.SetTrigger("IddleDer");
             }
         }
     }
@@ -143,26 +149,31 @@ public class PlayerMovement : MonoBehaviour
     void Dash()
     {
         inDash = true;
+        startDash = true;
         inTouchable = true;
         currentSpeed *= dashForce;
-        if (lastDirection < 0)
+        anim.ResetTrigger("caminaIzq");
+        anim.ResetTrigger("caminaDer");
+        anim.ResetTrigger("IddleIzq");
+        anim.ResetTrigger("IddleDer");
+        if (lastDirectionX < 0)
         {
-            anim.ResetTrigger("caminaIzq");
+            //anim.ResetTrigger("caminaIzq");
             anim.SetTrigger("DashIzq");
         }
-        if (lastDirection > 0)
+        if (lastDirectionX > 0)
         {
-            anim.ResetTrigger("caminaDer");
+            //anim.ResetTrigger("caminaDer");
             anim.SetTrigger("DashDer");
         }
         if (lastDirectionY > 0) 
         {
-            anim.ResetTrigger("caminaDer");
+            //anim.ResetTrigger("caminaDer");
             anim.SetTrigger("DashDer");
         }
         if (lastDirectionY < 0) 
         {
-            anim.ResetTrigger("caminaIzq");
+            //anim.ResetTrigger("caminaIzq");
             anim.SetTrigger("DashIzq");
         }
         Invoke("AfterDash", dashDistance / 10);
@@ -173,6 +184,7 @@ public class PlayerMovement : MonoBehaviour
     void AfterDash()
     {
         currentSpeed = normalSpeed;
+        startDash = false;
         //body.linearVelocity = new Vector2(0, 0);
         inTouchable = false;
     }
@@ -187,6 +199,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E)) 
             {
                 Debug.Log("Esta intenando activar!");
+                EventManager.ReportDiscovery("Puzzle_Palancas");
                 palancaActual.Activado = true;
             }
         }   
@@ -198,7 +211,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 inputCounter++;
             }
-            if(inputCounter == 30)
+            if(inputCounter == 15)
             {
                 isStuck = false;
             }
@@ -224,9 +237,12 @@ public class PlayerMovement : MonoBehaviour
             puedeActivar = true;
             palancaActual = collision.GetComponent<Palanca>();
         }
-        if (collision.CompareTag("Pegamento"))
+        if (!startDash)
         {
-            isStuck = true;
+            if (collision.CompareTag("Pegamento"))
+            {
+                isStuck = true;
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

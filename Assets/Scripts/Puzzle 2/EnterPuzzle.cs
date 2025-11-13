@@ -22,6 +22,7 @@ public class EnterPuzzle : MonoBehaviour
             {
                 puzzle2.SetActive(true);
                 player.gameObject.SetActive(false);
+                EventManager.ReportDiscovery("Puzzle_Espejo");
             }
         }
     }

@@ -20,6 +20,7 @@ public class DoorSpawn : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
+            EventManager.ReportDiscovery("Puzzle_Puertas");
             if (!siguienteHabitacion)
             {
                 collision.transform.position = spawnDestino.position; // aca hace el tp para el player

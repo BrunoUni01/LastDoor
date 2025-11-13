@@ -110,7 +110,7 @@ public class Scroll : MonoBehaviour
     {
         fade.FadeOut();
         yield return new WaitUntil(fade.getFadeout());
-        gameOver.SceneName(3);
+        gameOver.SceneName(4);
         yield return null;
     }
 

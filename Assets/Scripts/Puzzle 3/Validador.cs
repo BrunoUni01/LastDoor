@@ -25,10 +25,10 @@ public class Validador : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("aaaaa");
+        //print("aaaaa");
         if (!collision.CompareTag("CajaPuzTres")) { return; }
         var caja = collision.gameObject.GetComponent<Box_Number>().numero;
-        print("que esta pasando");
+        //print("que esta pasando");
         validacion = placa.Validacion(caja);
         if (validacion)
         {
@@ -40,11 +40,11 @@ public class Validador : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        print("dddddd");
+        //print("dddddd");
         if (!collision.CompareTag("CajaPuzTres")) { return; }
         if (validacion)
         {
-            print("que esta");
+            //print("que esta");
             //collision.gameObject.GetComponent<PushableObject>().target = null;
             validacion = false;
             atraer = true;

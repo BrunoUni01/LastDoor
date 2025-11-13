@@ -50,6 +50,7 @@ public class PlayerInteraction : MonoBehaviour
 
             objetoPermanente.transform.position = playerColliderPos;
         }
+        EventManager.ReportDiscovery("Puzzle_Llaves");
         objetoPermanente = objetoSuelo;
         objetoPermanente.gameObject.transform.position = new Vector2(9000, 9000);
     }

@@ -80,7 +80,7 @@ public class PullBox : MonoBehaviour
             inPlayer = false;
             return;
         }
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.E))
         {
             if (inPlayer)
             {
