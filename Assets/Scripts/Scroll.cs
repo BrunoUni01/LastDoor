@@ -23,6 +23,7 @@ public class Scroll : MonoBehaviour
     Animator ani;
     [SerializeField] SpriteRenderer sprite;
     private PlayerMovement player;
+    private RoomFade fade;
     //private Color colorInicio;
     //private Color colorMedio;
     //private Color colorMedioFinal;
@@ -36,6 +37,7 @@ public class Scroll : MonoBehaviour
 
     void Start()
     {
+        fade = FindAnyObjectByType<RoomFade>();
         player = FindAnyObjectByType<PlayerMovement>();
         ani = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();    
@@ -99,9 +101,17 @@ public class Scroll : MonoBehaviour
         if (t / tiempo >= 1) 
         {
             t = tiempo * 2.2f;
-            ani.SetTrigger("Stop");
-            gameOver.SceneName(3);
+            //ani.SetTrigger("Stop");
+            StartCoroutine(nameof(ProcesoPerder));
+            //gameOver.SceneName(3);
         }
+    }
+    IEnumerator ProcesoPerder() 
+    {
+        fade.FadeOut();
+        yield return new WaitUntil(fade.getFadeout());
+        gameOver.SceneName(3);
+        yield return null;
     }
 
     public void ColisionObjeto(float value) 

@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movimiento Lineal")]
     [SerializeField] public float currentSpeed;
     [SerializeField] private Palanca palancaActual;
-    private float inputX, inputY, lastDirection;
+    private float inputX, inputY, lastDirection, lastDirectionY;
     private bool puedeActivar;
     public bool canMove;
     [SerializeField] private int inputCounter = 0;
@@ -86,22 +86,40 @@ public class PlayerMovement : MonoBehaviour
 
         if (inputX != 0)
             lastDirection = inputX;
+        else if (inputY != 0)
+            lastDirectionY = lastDirection;
+        else lastDirectionY = 0;
 
-        Vector2 movimiento = new Vector2(inputX, inputY);
+            Vector2 movimiento = new Vector2(inputX, inputY);
         body.linearVelocity = movimiento.normalized * currentSpeed;
 
         if (!inTouchable)
         {
-            if (inputX < 0)
+            if (inputX < 0 && inputY < 0)
                 anim.SetTrigger("caminaIzq");
-            if (inputX > 0)
+            else if (inputX < 0 && inputY > 0)
+                anim.SetTrigger("caminaIzq");
+            else if (inputX < 0 && inputY == 0)
+                anim.SetTrigger("caminaIzq");
+            else if (inputY < 0 && inputX == 0)
+                anim.SetTrigger("caminaIzq");
+            else if (inputX > 0 && inputY < 0)
+                anim.SetTrigger("caminaDer");
+            else if (inputX > 0 && inputY > 0)
+                anim.SetTrigger("caminaDer");
+            else if (inputX > 0 && inputY == 0)
+                anim.SetTrigger("caminaDer");
+            else if (inputY > 0 && inputX == 0)
                 anim.SetTrigger("caminaDer");
 
-            if (inputX == 0 && lastDirection < 0)
+
+
+
+            if (inputX == 0 && inputY == 0 && lastDirection < 0)
             {
                 anim.SetTrigger("IddleIzq");
             }
-            else if (inputX == 0 && lastDirection > 0)
+            else if (inputX == 0 && inputY == 0 && lastDirection > 0)
             {
                 anim.SetTrigger("IddleDer");
             }
