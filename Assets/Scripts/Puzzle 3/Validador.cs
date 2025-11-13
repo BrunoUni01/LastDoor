@@ -35,6 +35,7 @@ public class Validador : MonoBehaviour
             //collision.gameObject.GetComponent<PushableObject>().Validador(transform);
             atraer = false;
             luz.enabled = true;
+            EventManager.ReportDiscovery("Puzzle_Cajas");
         }
 
     }
