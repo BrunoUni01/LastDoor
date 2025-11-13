@@ -87,8 +87,12 @@ public class PlayerMovement : MonoBehaviour
         if (inputX != 0)
             lastDirection = inputX;
         else if (inputY != 0)
-            lastDirectionY = lastDirection;
-        else lastDirectionY = 0;
+        {
+            if (lastDirection != 0)
+                lastDirectionY = lastDirection;
+            else lastDirectionY = inputY;
+        }
+        //else lastDirectionY = 0;
 
             Vector2 movimiento = new Vector2(inputX, inputY);
         body.linearVelocity = movimiento.normalized * currentSpeed;
@@ -150,6 +154,16 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.ResetTrigger("caminaDer");
             anim.SetTrigger("DashDer");
+        }
+        if (lastDirectionY > 0) 
+        {
+            anim.ResetTrigger("caminaDer");
+            anim.SetTrigger("DashDer");
+        }
+        if (lastDirectionY < 0) 
+        {
+            anim.ResetTrigger("caminaIzq");
+            anim.SetTrigger("DashIzq");
         }
         Invoke("AfterDash", dashDistance / 10);
         Invoke("ResetDash", cooldown);
