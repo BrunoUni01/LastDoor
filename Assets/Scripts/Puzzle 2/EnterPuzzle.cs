@@ -34,14 +34,14 @@ public class EnterPuzzle : MonoBehaviour
         }
         else 
         {
-            playerKey= false;
+            playerKey = false;
         }
-        
-        
+        Puzzle2();
+
     }
     private void FixedUpdate()
     {
-        Puzzle2();
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
