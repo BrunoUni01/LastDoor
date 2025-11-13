@@ -71,6 +71,14 @@ public class LibroManager : MonoBehaviour
                 if (TextosLibro.Length > 6)
                     TextosLibro[6].SetActive(true);
                 break;
+            case "Puzzle_Puertas":
+                if (TextosLibro.Length > 7)
+                    TextosLibro[7].SetActive(true);
+                break;
+            case "Puzzle_Laberinto":
+                if (TextosLibro.Length > 8)
+                    TextosLibro[8].SetActive(true);
+                break;
 
                 // Puedes seguir agregando más casos:
                 // case "Puzzle_Rocas": pagPuzzles[2].SetActive(true); break;

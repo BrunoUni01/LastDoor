@@ -10,7 +10,7 @@ public class DiscoveryManager : MonoBehaviour
     {
         // Registrar este manager en el EventManager
         EventManager.discoveryManager = this;
-        ResetProgress();
+        //ResetProgress();
         LoadProgress();
     }
 
