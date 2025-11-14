@@ -23,7 +23,7 @@ public class Key : MonoBehaviour
     {
         if (codigo == -1) 
         {
-            Color a = new Color(0.796f, 0.690f, 0.129f);
+            Color a = new Color(156f / 255f, 122f / 255f, 1f / 255f);
             sprite.color = a;   
         }
     }

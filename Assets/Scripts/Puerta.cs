@@ -8,7 +8,7 @@ public class Puerta : MonoBehaviour
     [SerializeField] Candados candado;
     [SerializeField] Scroll scrollActual;
     [SerializeField] Scroll siguienteScroll;
-    [SerializeField] OpenEscombrosScreen tempo;
+    [SerializeField] private OpenEscombrosScreen tempo;
     public bool locked;
     [SerializeField] SpriteRenderer activado;
 
