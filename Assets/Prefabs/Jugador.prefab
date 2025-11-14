@@ -116,7 +116,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -3394116561940727913, guid: 054b09b3d4d1e08449466e31c6dc1fbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashForce: 0
   inDash: 0
+  startDash: 0
   inTouchable: 0
   dashDistance: 0
   normalSpeed: 0
@@ -177,6 +178,7 @@ MonoBehaviour:
   palancaActual: {fileID: 0}
   canMove: 0
   inputCounter: 0
+  isStuck: 0
   inPull: 0
   inicioRaycastSuelo: {fileID: 7961240562690987984}
   distanciaRayoSuelo: 0

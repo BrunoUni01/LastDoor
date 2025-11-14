@@ -13,11 +13,12 @@ public class OpenEscombrosScreen : MonoBehaviour
     private void Start()
     {
         puerta = GetComponent<Puerta>();
-        puerta.locked = true;
+        //puerta.locked = true;
         playerMovement = FindAnyObjectByType<PlayerMovement>();
         puzzleTutorial = FindAnyObjectByType<Escombros>();
-        if (puerta != null) puerta.locked = true;
+        //if (puerta != null) puerta.locked = true;
     }
+    public Escombros getEscombros() => puzzleTutorial;
     void Update()
     {
         if (inPlayer && Input.GetKeyDown(KeyCode.E))
@@ -30,7 +31,7 @@ public class OpenEscombrosScreen : MonoBehaviour
         {
             ExitPuzzle();
             puerta?.Unlock();
-            Destroy(this);
+            //Destroy(this);
         }
     }
     void EnterPuzzle() 

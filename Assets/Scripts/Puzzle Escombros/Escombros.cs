@@ -3,7 +3,12 @@ using UnityEngine;
 public class Escombros : MonoBehaviour
 {
     [SerializeField] int escombros;
+    public bool activo;
 
+    private void Awake()
+    {
+        activo = true;
+    }
     private void Update()
     {
         CerraPuzzle();
@@ -12,8 +17,11 @@ public class Escombros : MonoBehaviour
     {
         if (escombros <= 0)
         {
-            //unlock
-            gameObject.SetActive(false);
+            activo = false;
+        }
+        else 
+        {
+            activo = true;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,5 +39,9 @@ public class Escombros : MonoBehaviour
     public bool FinEscombros() 
     {
         return escombros <= 0;
+    }
+    public void DisableGameobject() 
+    {
+        gameObject.SetActive(false);
     }
 }
