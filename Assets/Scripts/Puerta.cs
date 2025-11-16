@@ -82,18 +82,19 @@ public class Puerta : MonoBehaviour
     private void TherePuzzleTutorial() 
     {
         tempo = GetComponent<OpenEscombrosScreen>();
-        if (tempo) 
-        {
+        if (!tempo) return;
+        if (!tempo.getEscombros()) return;
             if (tempo.getEscombros().activo) 
             {
                 locked = true;
+
             }
             else
             {
                 tempo.getEscombros().DisableGameobject();
-                locked = false;
+                //locked = false;
             }
-        }
+        
     }
     public void Unlock() => locked = false;
 

@@ -31,7 +31,7 @@ public class OpenEscombrosScreen : MonoBehaviour
         {
             ExitPuzzle();
             puerta?.Unlock();
-            //Destroy(this);
+            Destroy(this);
         }
     }
     void EnterPuzzle() 
