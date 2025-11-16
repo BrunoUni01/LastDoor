@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movimiento Lineal")]
     [SerializeField] public float currentSpeed;
+    private Vector2 lastDirection;
     [SerializeField] private Palanca palancaActual;
     private float inputX, inputY, lastDirectionX, lastDirectionY;
     private bool puedeActivar;
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         inPull = false;
         canMove = true;
         isStuck = false;
+        lastDirection = Vector2.right;
     }
 
     private void Awake()
@@ -65,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (isStuck) Stuck();
         ActivarPalanca();
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isStuck)
         {
             if (!inDash)
                 Dash();
@@ -84,55 +86,64 @@ public class PlayerMovement : MonoBehaviour
             inputY = Input.GetAxisRaw("Vertical");
         }
 
-        if (inputX != 0)
-            lastDirectionX = inputX;
-        if (inputY != 0)
+        if (inputX != 0 || inputY != 0)
         {
-            
-            lastDirectionY = inputY;
+            lastDirection = new Vector2(inputX, inputY);
         }
+
+
         //else lastDirectionY = 0;
 
-            Vector2 movimiento = new Vector2(inputX, inputY);
+        Vector2 movimiento = new Vector2(inputX, inputY);
         body.linearVelocity = movimiento.normalized * currentSpeed;
 
         if (!inTouchable)
         {
-            if (inputX < 0 && inputY < 0)
-                anim.SetTrigger("caminaIzq");
-            else if (inputX < 0 && inputY > 0)
-                anim.SetTrigger("caminaIzq");
-            else if (inputX < 0 && inputY == 0)
-                anim.SetTrigger("caminaIzq");
-            else if (inputY < 0 && inputX == 0)
-                anim.SetTrigger("caminaIzq");
-            else if (inputX > 0 && inputY < 0)
-                anim.SetTrigger("caminaDer");
-            else if (inputX > 0 && inputY > 0)
-                anim.SetTrigger("caminaDer");
-            else if (inputX > 0 && inputY == 0)
-                anim.SetTrigger("caminaDer");
-            else if (inputY > 0 && inputX == 0)
-                anim.SetTrigger("caminaDer");
-
-
-
-
-            //if (inputX == 0 && inputY == 0 && lastDirectionX < 0)
-            //{
-            //    anim.SetTrigger("IddleIzq");
-            //}
-            //else if (inputX == 0 && inputY == 0 && lastDirectionX > 0)
-            //{
-            //    anim.SetTrigger("IddleDer");
-            //}
-            if (inputX == 0 && inputY == 0)
+            if (inputX != 0 || inputY != 0) // caminando
             {
-                if (lastDirectionX < 0)
+                Vector2 dir = lastDirection;
+
+                if (dir.x < 0 && dir.y == 0)
+                    anim.SetTrigger("caminaIzq");
+                else if (dir.x > 0 && dir.y == 0)
+                    anim.SetTrigger("caminaDer");
+                else if (dir.y > 0 && dir.x == 0)
+                    anim.SetTrigger("caminaDer");
+                else if (dir.y < 0 && dir.x == 0)
+                    anim.SetTrigger("caminaIzq");
+
+                else if (dir.x < 0 && dir.y > 0)
+                    anim.SetTrigger("caminaIzq");
+                else if (dir.x > 0 && dir.y > 0)
+                    anim.SetTrigger("caminaDer");
+                else if (dir.x < 0 && dir.y < 0)
+                    anim.SetTrigger("caminaIzq");
+                else if (dir.x > 0 && dir.y < 0)
+                    anim.SetTrigger("caminaDer");
+            }
+            else // idle
+            {
+                Vector2 dir = lastDirection;
+
+                if (dir.x < 0 && dir.y == 0)
                     anim.SetTrigger("IddleIzq");
-                else if (lastDirectionX > 0)
+                else if (dir.x > 0 && dir.y == 0)
+                    anim.SetTrigger("IddleDer");
+                else if (dir.y > 0 && dir.x == 0)
+                    anim.SetTrigger("IddleDer");
+                else if (dir.y < 0 && dir.x == 0)
+                    anim.SetTrigger("IddleIzq");
+
+                else if (dir.x < 0 && dir.y > 0)
+                    anim.SetTrigger("IddleIzq");
+                else if (dir.x > 0 && dir.y > 0)
+                    anim.SetTrigger("IddleDer");
+                else if (dir.x < 0 && dir.y < 0)
+                    anim.SetTrigger("IddleIzq");
+                else if (dir.x > 0 && dir.y < 0)
                     anim.SetTrigger("IddleDer");
             }
+
         }
     }
     public bool RayoSuelo(LayerMask current) 
@@ -148,34 +159,37 @@ public class PlayerMovement : MonoBehaviour
     }
     void Dash()
     {
+        if (inputX == 0 && inputY == 0) return;
+        inTouchable = true;
         inDash = true;
         startDash = true;
-        inTouchable = true;
-        currentSpeed *= dashForce;
         anim.ResetTrigger("caminaIzq");
         anim.ResetTrigger("caminaDer");
         anim.ResetTrigger("IddleIzq");
         anim.ResetTrigger("IddleDer");
-        if (lastDirectionX < 0)
-        {
-            //anim.ResetTrigger("caminaIzq");
+
+
+        Vector2 dir = lastDirection;
+
+        if (dir.x < 0 && dir.y == 0)
             anim.SetTrigger("DashIzq");
-        }
-        if (lastDirectionX > 0)
-        {
-            //anim.ResetTrigger("caminaDer");
+        else if (dir.x > 0 && dir.y == 0)
             anim.SetTrigger("DashDer");
-        }
-        if (lastDirectionY > 0) 
-        {
-            //anim.ResetTrigger("caminaDer");
+        else if (dir.y > 0 && dir.x == 0)
             anim.SetTrigger("DashDer");
-        }
-        if (lastDirectionY < 0) 
-        {
-            //anim.ResetTrigger("caminaIzq");
+        else if (dir.y < 0 && dir.x == 0)
             anim.SetTrigger("DashIzq");
-        }
+
+        else if (dir.x < 0 && dir.y > 0)
+            anim.SetTrigger("DashIzq");
+        else if (dir.x > 0 && dir.y > 0)
+            anim.SetTrigger("DashDer");
+        else if (dir.x < 0 && dir.y < 0)
+            anim.SetTrigger("DashIzq");
+        else if (dir.x > 0 && dir.y < 0)
+            anim.SetTrigger("DashDer");
+
+        currentSpeed *= dashForce;
         Invoke("AfterDash", dashDistance / 10);
         Invoke("ResetDash", cooldown);
 
@@ -227,6 +241,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Stuck()
     {
+        anim.ResetTrigger("caminaIzq");
+        anim.ResetTrigger("caminaDer");
+        anim.ResetTrigger("IddleIzq");
+        anim.ResetTrigger("IddleDer");
+        anim.SetTrigger("DashDer");
+        anim.SetTrigger("DashIzq");
         body.linearVelocity = new Vector2(0,0);
     }
 
