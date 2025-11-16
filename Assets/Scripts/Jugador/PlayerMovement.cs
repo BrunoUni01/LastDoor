@@ -241,12 +241,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Stuck()
     {
-        anim.ResetTrigger("caminaIzq");
-        anim.ResetTrigger("caminaDer");
-        anim.ResetTrigger("IddleIzq");
-        anim.ResetTrigger("IddleDer");
-        anim.SetTrigger("DashDer");
-        anim.SetTrigger("DashIzq");
+        //anim.ResetTrigger("caminaIzq");
+        //anim.ResetTrigger("caminaDer");
+        //anim.ResetTrigger("IddleIzq");
+        //anim.ResetTrigger("IddleDer");
+        //anim.SetTrigger("DashDer");
+        //anim.SetTrigger("DashIzq");
         body.linearVelocity = new Vector2(0,0);
     }
 

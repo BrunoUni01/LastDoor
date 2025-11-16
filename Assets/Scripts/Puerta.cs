@@ -12,6 +12,9 @@ public class Puerta : MonoBehaviour
     public bool locked;
     [SerializeField] SpriteRenderer activado;
 
+    [Header("Puzzles")]
+    [SerializeField] PuzzleClearEspejo puzzleEspejo;
+
     private void Awake()
     {
         //candado = null;
@@ -42,6 +45,7 @@ public class Puerta : MonoBehaviour
                 ThereCandado(other);
             }
             TherePuzzleTutorial();
+            TherePuzzleEspejo();
 
         }
 
@@ -95,6 +99,14 @@ public class Puerta : MonoBehaviour
                 //locked = false;
             }
         
+    }
+    private void TherePuzzleEspejo() 
+    {
+        if (!puzzleEspejo) return;
+        if (puzzleEspejo.puzzleclear)
+            locked = false;
+        else
+            locked = true;
     }
     public void Unlock() => locked = false;
 
