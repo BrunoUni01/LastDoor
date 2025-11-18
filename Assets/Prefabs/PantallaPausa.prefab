@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.74509805}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.79607844}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -149,7 +149,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 14
+  m_SortingOrder: 16
   m_TargetDisplay: 0
 --- !u!114 &492292942779586486
 MonoBehaviour:
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 3027767193086333713}
   - component: {fileID: 2813375906856816060}
   m_Layer: 5
-  m_Name: Reanudar (1)
+  m_Name: Reiniciar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0298297a5d24a564e9f0ef5113b61192, type: 3}
+  m_Sprite: {fileID: 4700005608854782287, guid: f38a8798ad0082845a0082a50acb8086, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
