@@ -20,6 +20,13 @@ public class LibroManager : MonoBehaviour
     [SerializeField] private int pagPuzle;
     [SerializeField] private int pagTramp;
     [SerializeField] private int pagObj;
+    [SerializeField] private string[] textosLibro = new string[] { "Trampa_Oso", "Trampa_Oso", "Trampa_Jaula", "Trampa_Jaula", "Puzzle_Escombros", "Puzzle_Escombros",
+                                 "Puzzle_Palancas","Puzzle_Palancas", "Puzzle_Espejo","Puzzle_Espejo","Puzzle_Cajas","Puzzle_Cajas","Puzzle_Llaves","Puzzle_Llaves",
+                                 "Puzzle_Puertas","Puzzle_Puertas","Puzzle_Laberinto","Puzzle_Laberinto"};
+
+    [Header("EfectosBotoes")]
+
+    [SerializeField] GameObject[] botones;
 
     [Header("Icono de nuevo descubrimiento")]
     [SerializeField] GameObject iconoDescubrimiento;
@@ -38,51 +45,59 @@ public class LibroManager : MonoBehaviour
     {
         Debug.Log("Desbloqueando entrada en el libro: " + id);
 
-        // Ejemplo de cómo podrías manejar distintos tipos
-        switch (id)
+        for (int i = 0; i < textosLibro.Length; i++) 
         {
-            case "Trampa_Oso":
-                // Hacemos visible el texto o imagen de la trampa de oso
-                // Supongamos que la página está en pagTrampas[0]
-                if (TextosLibro.Length > 0)
-                    TextosLibro[0].SetActive(true);
-                break;
-            case "Trampa_Jaula":
-                if (TextosLibro.Length > 1)
-                    TextosLibro[1].SetActive(true);
-                break;
-            case "Puzzle_Escombros":
-                if (TextosLibro.Length > 2)
-                    TextosLibro[2].SetActive(true);
-                break;
-            case "Puzzle_Palancas":
-                if (TextosLibro.Length > 3)
-                    TextosLibro[3].SetActive(true);
-                break;
-            case "Puzzle_Espejo":
-                if (TextosLibro.Length > 4)
-                    TextosLibro[4].SetActive(true);
-                break;
-            case "Puzzle_Cajas":
-                if (TextosLibro.Length > 5)
-                    TextosLibro[5].SetActive(true);
-                break;
-            case "Puzzle_Llaves":
-                if (TextosLibro.Length > 6)
-                    TextosLibro[6].SetActive(true);
-                break;
-            case "Puzzle_Puertas":
-                if (TextosLibro.Length > 7)
-                    TextosLibro[7].SetActive(true);
-                break;
-            case "Puzzle_Laberinto":
-                if (TextosLibro.Length > 8)
-                    TextosLibro[8].SetActive(true);
-                break;
-
-                // Puedes seguir agregando más casos:
-                // case "Puzzle_Rocas": pagPuzzles[2].SetActive(true); break;
+            if (textosLibro[i] == id) 
+            {
+                TextosLibro[i].SetActive(true);
+            }
         }
+
+        //// Ejemplo de cómo podrías manejar distintos tipos
+        //switch (id)
+        //{
+        //    case "Trampa_Oso":
+        //        // Hacemos visible el texto o imagen de la trampa de oso
+        //        // Supongamos que la página está en pagTrampas[0]
+        //        if (TextosLibro.Length > 0)
+        //            TextosLibro[0].SetActive(true);
+        //        break;
+        //    case "Trampa_Jaula":
+        //        if (TextosLibro.Length > 1)
+        //            TextosLibro[1].SetActive(true);
+        //        break;
+        //    case "Puzzle_Escombros":
+        //        if (TextosLibro.Length > 2)
+        //            TextosLibro[2].SetActive(true);
+        //        break;
+        //    case "Puzzle_Palancas":
+        //        if (TextosLibro.Length > 3)
+        //            TextosLibro[3].SetActive(true);
+        //        break;
+        //    case "Puzzle_Espejo":
+        //        if (TextosLibro.Length > 4)
+        //            TextosLibro[4].SetActive(true);
+        //        break;
+        //    case "Puzzle_Cajas":
+        //        if (TextosLibro.Length > 5)
+        //            TextosLibro[5].SetActive(true);
+        //        break;
+        //    case "Puzzle_Llaves":
+        //        if (TextosLibro.Length > 6)
+        //            TextosLibro[6].SetActive(true);
+        //        break;
+        //    case "Puzzle_Puertas":
+        //        if (TextosLibro.Length > 7)
+        //            TextosLibro[7].SetActive(true);
+        //        break;
+        //    case "Puzzle_Laberinto":
+        //        if (TextosLibro.Length > 8)
+        //            TextosLibro[8].SetActive(true);
+        //        break;
+
+        //        // Puedes seguir agregando más casos:
+        //        // case "Puzzle_Rocas": pagPuzzles[2].SetActive(true); break;
+        //}
 
         // Mostrar icono brillante en pantalla
         if (iconoDescubrimiento != null)
@@ -90,28 +105,35 @@ public class LibroManager : MonoBehaviour
     }
     public void ActualizarDescubiertos(string id) 
     {
-        switch (id)
+        for (int i = 0; i < textosLibro.Length; i++)
         {
-            case "Trampa_Oso":
-                // Hacemos visible el texto o imagen de la trampa de oso
-                // Supongamos que la página está en pagTrampas[0]
-                if (pagTrampas.Length > 0)
-                    TextosLibro[0].SetActive(true);
-                break;
-
-            case "Trampa_Jaula":
-                if (pagTrampas.Length > 1)
-                    TextosLibro[1].SetActive(true);
-                break;
-
-            case "Puzzle_Escombros":
-                if (pagTrampas.Length > 2)
-                    TextosLibro[2].SetActive(true);
-                break;
-
-                // Puedes seguir agregando más casos:
-                // case "Puzzle_Rocas": pagPuzzles[2].SetActive(true); break;
+            if (textosLibro[i] == id)
+            {
+                TextosLibro[i].SetActive(true);
+            }
         }
+        //switch (id)
+        //{
+        //    case "Trampa_Oso":
+        //        // Hacemos visible el texto o imagen de la trampa de oso
+        //        // Supongamos que la página está en pagTrampas[0]
+        //        if (pagTrampas.Length > 0)
+        //            TextosLibro[0].SetActive(true);
+        //        break;
+
+        //    case "Trampa_Jaula":
+        //        if (pagTrampas.Length > 1)
+        //            TextosLibro[1].SetActive(true);
+        //        break;
+
+        //    case "Puzzle_Escombros":
+        //        if (pagTrampas.Length > 2)
+        //            TextosLibro[2].SetActive(true);
+        //        break;
+
+        //        // Puedes seguir agregando más casos:
+        //        // case "Puzzle_Rocas": pagPuzzles[2].SetActive(true); break;
+        //}
 
     }
     private IEnumerator MostrarIconoTemporal()
@@ -130,6 +152,10 @@ public class LibroManager : MonoBehaviour
         PantallaTrampas[1].SetActive(false);
         PantallaObjetos[0].SetActive(false);
         PantallaObjetos[1].SetActive(false);
+        botones[0].SetActive(false);
+        botones[1].SetActive(true);
+        botones[2].SetActive(true);
+        botones[3].SetActive(true);
     }
     public void EntrarPantallaPuzzles()
     {
@@ -141,6 +167,10 @@ public class LibroManager : MonoBehaviour
         PantallaObjetos[1].SetActive(false);
         PantallaCinematica[0].SetActive(false);
         PantallaCinematica[1].SetActive(false);
+        botones[0].SetActive(true);
+        botones[1].SetActive(false);
+        botones[2].SetActive(true);
+        botones[3].SetActive(true);
     }
     public void EntrarPantallaTrampas()
     {
@@ -152,6 +182,10 @@ public class LibroManager : MonoBehaviour
         PantallaCinematica[1].SetActive(false);
         PantallaPuzzles[0].SetActive(false);
         PantallaPuzzles[1].SetActive(false);
+        botones[0].SetActive(true);
+        botones[1].SetActive(true);
+        botones[2].SetActive(false);
+        botones[3].SetActive(true);
     }
     public void EntrarPantallaObjetos()
     {
@@ -163,7 +197,12 @@ public class LibroManager : MonoBehaviour
         PantallaTrampas[1].SetActive(false);
         PantallaCinematica[0].SetActive(false);
         PantallaCinematica[1].SetActive(false);
+        botones[0].SetActive(true);
+        botones[1].SetActive(true);
+        botones[2].SetActive(true);
+        botones[3].SetActive(false);
     }
+
     public void PasarDePagina(int cambio) 
     {
         if (cambio == -1)
