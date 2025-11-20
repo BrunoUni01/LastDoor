@@ -293,8 +293,5 @@ public class LibroManager : MonoBehaviour
         if (variable < 0) variable = 0;
         return variable;
     }
-    private void Update()
-    {
-        
-    }
+   
 }
