@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private bool puedeActivar;
     public bool canMove;
     [SerializeField] private int inputCounter = 0;
-    [SerializeField] private bool isStuck;
+    [SerializeField] private bool isStuck, isDelay;
 
     [Header("Comprobaciones")]
     [HideInInspector] public bool inPull;
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
             if (!inDash)
                 Dash();
         }
-        if (isStuck) TrampaPegamento();
+        if (isDelay) TrampaPegamento();
     }
     private void FixedUpdate()
     {
@@ -218,17 +218,27 @@ public class PlayerMovement : MonoBehaviour
             }
         }   
     }
+    private void DelayMovement() 
+    {
+        currentSpeed = 0.35f;
 
+    }
+    private void afterDelay() 
+    {
+        currentSpeed = normalSpeed;
+    }
+    
     void TrampaPegamento()
     {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                inputCounter++;
-            }
-            if(inputCounter == 15)
-            {
-                isStuck = false;
-            }
+        DelayMovement();
+            //if (Input.GetKeyDown(KeyCode.Space))
+            //{
+            //    inputCounter++;
+            //}
+            //if(inputCounter == 15)
+            //{
+            //    isStuck = false;
+            //}
     }
     public void ActivarStuck() 
     {
@@ -261,7 +271,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if (collision.CompareTag("Pegamento"))
             {
-                isStuck = true;
+                //isStuck = true;
+                isDelay = true;
             }
         }
     }
@@ -275,7 +286,9 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Pegamento"))
         {
             inputCounter = 0;
-            isStuck = false;
+            afterDelay();
+            //isStuck = false;
+            isDelay = false;
         }
     }
     private void OnDrawGizmos()
