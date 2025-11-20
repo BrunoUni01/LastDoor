@@ -8,6 +8,7 @@ public class Palanca : MonoBehaviour
     [SerializeField] private bool activado;
     [SerializeField] private SpriteRenderer indicador;
     [SerializeField] private Light2D luz;
+    [SerializeField] Sprite[] sprites;
     public bool Activado { get => activado;  set => activado = value; }
 
 
@@ -17,7 +18,7 @@ public class Palanca : MonoBehaviour
     {
         luz = GetComponentInChildren<Light2D>();
         activado = false;
-        indicador = transform.GetChild(0).GetComponent<SpriteRenderer>();  
+        indicador = transform.GetComponent<SpriteRenderer>();  
     }
 
     // Update is called once per frame
@@ -26,12 +27,12 @@ public class Palanca : MonoBehaviour
         if (activado)
         {
             luz.enabled = true;
-            indicador.color = Color.green;
+            indicador.sprite = sprites[0];
         }
         else 
         {
             luz.enabled= false;
-            indicador.color= Color.red;
+            indicador.sprite = sprites[1];
         }
         
     }

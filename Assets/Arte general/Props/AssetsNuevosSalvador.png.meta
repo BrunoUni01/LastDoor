@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 28dbde3c42cb7e1498865af864d8d507
+guid: c992af97420fc85449ffa598667440f1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -471137234705341281
-    second: Salvador_Imagenes_0
+      213: 6666943426630045399
+    second: AssetsNuevosSalvador_0
   - first:
-      213: -8911582689854437080
-    second: Salvador_Imagenes_1
+      213: -7096738163856000384
+    second: AssetsNuevosSalvador_1
   - first:
-      213: -3316205475572866869
-    second: Salvador_Imagenes_2
+      213: 6325254015674983106
+    second: AssetsNuevosSalvador_2
   - first:
-      213: -443226917140868327
-    second: Salvador_Imagenes_3
+      213: -5449442301338525555
+    second: AssetsNuevosSalvador_3
   - first:
-      213: -6721083164091981057
-    second: Salvador_Imagenes_4
+      213: -3945292246799058671
+    second: AssetsNuevosSalvador_4
   - first:
-      213: 3794376764734340819
-    second: Salvador_Imagenes_5
+      213: -5542800813799606662
+    second: AssetsNuevosSalvador_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,133 +128,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Salvador_Imagenes_0
+      name: AssetsNuevosSalvador_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 10
-        width: 17
-        height: 9
+        x: 1
+        y: 4
+        width: 21
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f94ade46e2f2679f0800000000000000
-      internalID: -471137234705341281
+      spriteID: 7dec8e939bdb58c50800000000000000
+      internalID: 6666943426630045399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Salvador_Imagenes_1
+      name: AssetsNuevosSalvador_1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 10
-        width: 17
-        height: 9
+        x: 22
+        y: 4
+        width: 21
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 829c4b852c2b35480800000000000000
-      internalID: -8911582689854437080
+      spriteID: 08ab7677d32538d90800000000000000
+      internalID: -7096738163856000384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Salvador_Imagenes_2
+      name: AssetsNuevosSalvador_2
       rect:
         serializedVersion: 2
-        x: 46
-        y: 6
-        width: 16
-        height: 15
+        x: 53
+        y: 3
+        width: 24
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc02642a0b87af1d0800000000000000
-      internalID: -3316205475572866869
+      spriteID: 2c2ab6eb301d7c750800000000000000
+      internalID: 6325254015674983106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Salvador_Imagenes_3
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 6
-        width: 16
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9135de8977759d9f0800000000000000
-      internalID: -443226917140868327
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salvador_Imagenes_4
+      name: AssetsNuevosSalvador_3
       rect:
         serializedVersion: 2
         x: 86
-        y: 6
-        width: 16
-        height: 23
+        y: 5
+        width: 25
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff2607ad87ae9b2a0800000000000000
-      internalID: -6721083164091981057
+      spriteID: d80eabc6911bf54b0800000000000000
+      internalID: -5449442301338525555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Salvador_Imagenes_5
+      name: AssetsNuevosSalvador_4
       rect:
         serializedVersion: 2
-        x: 105
-        y: 6
-        width: 8
-        height: 12
+        x: 114
+        y: 4
+        width: 10
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3de7cf5609558a430800000000000000
-      internalID: 3794376764734340819
+      spriteID: 1197076ca918f39c0800000000000000
+      internalID: -3945292246799058671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AssetsNuevosSalvador_5
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 4
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a767ab0e6040413b0800000000000000
+      internalID: -5542800813799606662
       vertices: []
       indices: 
       edges: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d1cf13ede47c7dc4eae8439212698232
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -273,12 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Salvador_Imagenes_0: -471137234705341281
-      Salvador_Imagenes_1: -8911582689854437080
-      Salvador_Imagenes_2: -3316205475572866869
-      Salvador_Imagenes_3: -443226917140868327
-      Salvador_Imagenes_4: -6721083164091981057
-      Salvador_Imagenes_5: 3794376764734340819
+      AssetsNuevosSalvador_0: 6666943426630045399
+      AssetsNuevosSalvador_1: -7096738163856000384
+      AssetsNuevosSalvador_2: 6325254015674983106
+      AssetsNuevosSalvador_3: -5449442301338525555
+      AssetsNuevosSalvador_4: -3945292246799058671
+      AssetsNuevosSalvador_5: -5542800813799606662
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

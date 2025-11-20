@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 28dbde3c42cb7e1498865af864d8d507
+guid: 48dc6b43b29bcb54093ed07278f1c449
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -471137234705341281
-    second: Salvador_Imagenes_0
+      213: -381419058678184454
+    second: assets_palancasPuertas_0
   - first:
-      213: -8911582689854437080
-    second: Salvador_Imagenes_1
+      213: -6923418693250651575
+    second: assets_palancasPuertas_1
   - first:
-      213: -3316205475572866869
-    second: Salvador_Imagenes_2
+      213: 6610069255681678193
+    second: assets_palancasPuertas_2
   - first:
-      213: -443226917140868327
-    second: Salvador_Imagenes_3
+      213: 4465108175645011916
+    second: assets_palancasPuertas_3
   - first:
-      213: -6721083164091981057
-    second: Salvador_Imagenes_4
+      213: -6912706154635461120
+    second: assets_palancasPuertas_4
   - first:
-      213: 3794376764734340819
-    second: Salvador_Imagenes_5
+      213: -6228150277268839568
+    second: assets_palancasPuertas_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,133 +128,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Salvador_Imagenes_0
+      name: assets_palancasPuertas_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 10
-        width: 17
+        x: 1
+        y: 4
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af54ce0136de4baf0800000000000000
+      internalID: -381419058678184454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets_palancasPuertas_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 4
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94aee7d51631bef90800000000000000
+      internalID: -6923418693250651575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets_palancasPuertas_2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 3
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b13a567feabbb50800000000000000
+      internalID: 6610069255681678193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets_palancasPuertas_3
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 6
+        width: 3
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf63058a3047fd30800000000000000
+      internalID: 4465108175645011916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets_palancasPuertas_4
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 4
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00efb40a0622110a0800000000000000
+      internalID: -6912706154635461120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets_palancasPuertas_5
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 4
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 073e3ab225a2199a0800000000000000
+      internalID: -6228150277268839568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets_palancasPuertas_6
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 5
+        width: 13
         height: 9
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f94ade46e2f2679f0800000000000000
-      internalID: -471137234705341281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salvador_Imagenes_1
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 10
-        width: 17
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 829c4b852c2b35480800000000000000
-      internalID: -8911582689854437080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salvador_Imagenes_2
-      rect:
-        serializedVersion: 2
-        x: 46
-        y: 6
-        width: 16
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bc02642a0b87af1d0800000000000000
-      internalID: -3316205475572866869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salvador_Imagenes_3
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 6
-        width: 16
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9135de8977759d9f0800000000000000
-      internalID: -443226917140868327
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salvador_Imagenes_4
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 6
-        width: 16
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ff2607ad87ae9b2a0800000000000000
-      internalID: -6721083164091981057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salvador_Imagenes_5
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 6
-        width: 8
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3de7cf5609558a430800000000000000
-      internalID: 3794376764734340819
+      spriteID: 8e14234a5e29146409b9fa721d838aee
+      internalID: -135025964
       vertices: []
       indices: 
       edges: []
@@ -263,7 +285,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d1cf13ede47c7dc4eae8439212698232
+    spriteID: f98d7efa16161f8469b93d988a514bc9
     internalID: 0
     vertices: []
     indices: 
@@ -273,12 +295,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Salvador_Imagenes_0: -471137234705341281
-      Salvador_Imagenes_1: -8911582689854437080
-      Salvador_Imagenes_2: -3316205475572866869
-      Salvador_Imagenes_3: -443226917140868327
-      Salvador_Imagenes_4: -6721083164091981057
-      Salvador_Imagenes_5: 3794376764734340819
+      assets_palancasPuertas_0: -381419058678184454
+      assets_palancasPuertas_1: -6923418693250651575
+      assets_palancasPuertas_2: 6610069255681678193
+      assets_palancasPuertas_3: 4465108175645011916
+      assets_palancasPuertas_4: -6912706154635461120
+      assets_palancasPuertas_5: -6228150277268839568
+      assets_palancasPuertas_6: -135025964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
