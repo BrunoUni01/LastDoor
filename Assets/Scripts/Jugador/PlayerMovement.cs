@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
             else // idle
             {
                 Vector2 dir = lastDirection;
-
+                
                 if (dir.x < 0 && dir.y == 0)
                     anim.SetTrigger("IddleIzq");
                 else if (dir.x > 0 && dir.y == 0)
@@ -143,7 +143,6 @@ public class PlayerMovement : MonoBehaviour
                 else if (dir.x > 0 && dir.y < 0)
                     anim.SetTrigger("IddleDer");
             }
-
         }
     }
     public bool RayoSuelo(LayerMask current) 
